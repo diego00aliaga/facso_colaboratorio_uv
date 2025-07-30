@@ -78,7 +78,7 @@ $(document).ready(function() {
 	///////Accesibilidad//////
 	function resetear() {
 		$(".navbar").addClass("navbar-dark").removeClass("navbar-light white");
-		$("#logoColab").attr("src", "//colaboratoriocienciassociales.uv.cl/assets/images/logo_colaboratorio2.png");
+		$("#logoColab").attr("src", "//colaboratoriocienciassociales.uv.cl/assets/images/uv/logo_colaboratorio2.png");
 		$("#logo-menu").attr("src", "//colaboratoriocienciassociales.uv.cl/assets/images/logo_colaboratorio_menu.png");
 		$("#logoFooter").attr("src", "//colaboratoriocienciassociales.uv.cl/assets/images/logo_colaboratorio_blanco.png");
 		$("#logoUChile").attr("src", "//colaboratoriocienciassociales.uv.cl/assets/images/logoUChile.png");

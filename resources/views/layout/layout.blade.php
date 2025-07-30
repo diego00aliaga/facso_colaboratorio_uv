@@ -125,12 +125,12 @@
 				</div>
 			</div>
 			<div class="col-lg-4 col-xl-3 text-center py-3">
-				<img class="img-fluid" src="{{ asset('assets/images/logoUChile.png') }}" alt="Logo UChile" width="260" id="logoUChile" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Acreditada por el máximo periodo. 7 años, dic 2018 - dic 2025.">
+				<img class="img-fluid" src="{{ asset('assets/images/uv/LOGO_UV_BLANCO.png') }}" alt="Logo UV" width="260" id="logoUV" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">
 				<div class="pt-2">
-					<a class="azul mx-2" type="button" role="button" href="https://www.facebook.com/uchile" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Facebook UChile"><i class="fab fa-facebook-f"></i><span class="sr-only">Ir a Facebook UChile</span></a>
-					<a class="azul mx-2" type="button" role="button" href="https://twitter.com/uchile" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Twitter UChile"><i class="fab fa-twitter"></i><span class="sr-only">Ir a Twitter UChile</span></a>
-					<a class="azul mx-2" type="button" role="button" href="https://www.instagram.com/uchile" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Instagram UChile"><i class="fab fa-instagram"></i><span class="sr-only">Ir a Instagram UChile</span></a>
-					<a class="azul mx-2" type="button" role="button" href="https://www.youtube.com/uchile" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Youtube UChile"><i class="fab fa-youtube"></i><span class="sr-only">Ir a Youtube UChile</span></a>
+					<a class="azul mx-2" type="button" role="button" href="https://www.facebook.com/uvalpo" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Facebook UV"><i class="fab fa-facebook-f"></i><span class="sr-only">Ir a Facebook UV</span></a>
+					<a class="azul mx-2" type="button" role="button" href="https://twitter.com/@uvalpochile" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Twitter UV"><i class="fab fa-twitter"></i><span class="sr-only">Ir a Twitter UV</span></a>
+					<a class="azul mx-2" type="button" role="button" href="https://www.instagram.com/uvalpochile" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Instagram de la UV"><i class="fab fa-instagram"></i><span class="sr-only">Ir a Instagram UV</span></a>
+					<a class="azul mx-2" type="button" role="button" href="https://www.youtube.com/@uvalpochile" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Youtube UV"><i class="fab fa-youtube"></i><span class="sr-only">Ir a Youtube UV</span></a>
 				</div>
 			</div>
 			<div class="col-lg-4 col-xl-3 text-center py-3">

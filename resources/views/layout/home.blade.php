@@ -43,7 +43,7 @@
         <div class="container h-100 py-5">
           <div class="row flex-center" style="min-height: 70vh;">
             <div class="col-lg-10 col-xl-8 text-center">
-              <img class="img-fluid mx-auto mb-5" src="{{ asset('assets/images/logo_colaboratorio2.png') }}" width="600" alt="Colaboratorio de investigación en Ciencias Sociales">
+              <img class="img-fluid mx-auto mb-5" src="{{ asset('assets/images/uv/logo_colaboratorio2.png') }}" width="600" alt="Colaboratorio de investigación en Ciencias Sociales">
               <h5 class="text-start mb-5 b600" style="position: relative;">Es un <span class="azul">sistema abierto</span> que divulga la producción científica de investigadoras/es de la Facultad de Ciencias Sociales de la Universidad de Chile. Busca reconocer sus trayectorias e impulsar una <span class="azul">gestión del conocimiento</span> en lógica <span class="azul">colaborativa, abierta y transdisciplinar</span>.</h5>
               <!-- Temas -->
               <div class="text-start" id="searchTemas">
