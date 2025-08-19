@@ -55,7 +55,7 @@
 <nav class="navbar navbar-expand-lg sticky-top navbar-dark elegant-color-dark">
 	<div class="container-fluid">
 		<a class="navbar-brand" href="{{ route('home') }}">
-			<img src="{{ asset('assets/images/logo_colaboratorio_menu.png') }}" width="150" id="logo-menu">
+			<img src="{{ asset('assets/images/uv/logo_colaboratorio_menu.png') }}" width="150" id="logo-menu">
 		</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<i class="far fa-bars"></i>

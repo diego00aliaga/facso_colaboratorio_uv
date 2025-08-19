@@ -53,13 +53,13 @@
                 <ul class="list-unstyled mb-0">
                     <li>
                         <h4 class="bebas mb-0">Facultad de Ciencias Sociales</h4>
-                        <h5 class="bebas mb-2">Universidad de Chile</h5>
-                        <a class="ms-2 azul" href="https://maps.app.goo.gl/s8kWxPPdJt19Pd2E7" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="Google maps"><i class="fas fa-map-marker-alt mt-4 fa-2x azul"></i></a>
-                        <p class="mb-0 tx-chico">Av. Capitán Ignacio Carrera Pinto 1045 <br>Ñuñoa, Santiago, Chile</p>
+                        <h5 class="bebas mb-2">Universidad de Valparaíso</h5>
+                        <a class="ms-2 azul" href="https://maps.app.goo.gl/siNqDVuYPGi2Mrzq9" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="Google maps"><i class="fas fa-map-marker-alt mt-4 fa-2x azul"></i></a>
+                        <p class="mb-0 tx-chico">Hontaneda 2653, 2341369 <br>Valparaíso, Chile</p>
                     </li>
                     <li>
-                        <a href="mailto:contacto.colaboratoriouchile@facso.cl" data-bs-toggle="tooltip" data-bs-placement="top" title="Escribir"><i class="fas fa-envelope mt-4 fa-2x azul"></i></a>
-                        <p class="mb-0 tx-chico">contacto.colaboratoriouchile@facso.cl</p>
+                        <a href="mailto:investigacion.facso@uv.cl" data-bs-toggle="tooltip" data-bs-placement="top" title="Escribir"><i class="fas fa-envelope mt-4 fa-2x azul"></i></a>
+                        <p class="mb-0 tx-chico">investigacion.facso@uv.cl</p>
                     </li>
                 </ul>
             </div>

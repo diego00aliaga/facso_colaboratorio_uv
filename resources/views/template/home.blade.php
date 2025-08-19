@@ -15,7 +15,7 @@
     <meta property="og:url" content="https://colaboratorio.uchile.cl/" /><!-- Revisar URL -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="FACSO Abierta | Colaboratorio" />
-    <meta property="og:description" content="Es un sistema abierto que divulga la producción científica de investigadoras/es de la Facultad de Ciencias Sociales de la Universidad de Chile. Busca reconocer sus trayectorias e impulsar una gestión del conocimiento en lógica colaborativa, abierta y transdisciplinar." />
+    <meta property="og:description" content="Es un sistema abierto que divulga la producción científica de investigadoras/es de la Facultad de Ciencias Sociales de la Universidad de Valparaíso. Busca reconocer sus trayectorias e impulsar una gestión del conocimiento en lógica colaborativa, abierta y transdisciplinar. Esta iniciativa se desarrolla en colaboración con la Facultad de Ciencias Sociales de la Universidad de Chile." />
     <meta property="og:image" content="https://colaboratorio.uchile.cl/images/og-image.png" /><!-- Revisar URL -->
     <meta property="og:image:url" content="https://colaboratorio.uchile.cl/images/og-image.png" /><!-- Revisar URL -->
     <meta property="twitter:image" content="https://colaboratorio.uchile.cl/images/og-t-image.png" /><!-- Revisar URL -->
@@ -40,7 +40,7 @@
 <nav class="navbar navbar-expand-lg sticky-top navbar-dark elegant-color-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="{{ route('home') }}">
-            <img src="{{ asset('assets/images/logo_colaboratorio_menu.png') }}" width="150">
+            <img src="{{ asset('assets/images/uv/logo_colaboratorio_menu.png') }}" width="150">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -145,8 +145,8 @@
             </div>
             <div class="col-lg-4 col-xl-3 text-center py-3">
                 <h4 class="bebas mb-0">Facultad de Ciencias Sociales</h4>
-                <h5 class="bebas">Universidad de Chile</h5>
-                <p class="mb-0 tx-chico">Av. Capitán Ignacio Carrera Pinto 1045 <br>Ñuñoa, Santiago, Chile<a class="ms-2 azul" href="https://maps.app.goo.gl/s8kWxPPdJt19Pd2E7" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Google maps"><i class="fas fa-map-marker-alt fa-lg"></i><span class="sr-only">Ir a Google Maps</span></a></p>
+                <h5 class="bebas">Universidad de Valparaíso</h5>
+                <p class="mb-0 tx-chico">Hontaneda 2653, 2341369 <br>Valparaíso, Chile<a class="ms-2 azul" href="https://maps.app.goo.gl/s8kWxPPdJt19Pd2E7" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Google maps"><i class="fas fa-map-marker-alt fa-lg"></i><span class="sr-only">Ir a Google Maps</span></a></p>
             </div>
             <div class="col-lg-4 col-xl-3 text-center py-3">
                 <p class="mb-2 text-lg-start tx-chico">Las obras contenidas en esta plataforma están bajo una <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.es" target="_blank" class="link-simple">Licencia Creative Commons Atribución-NoComercial-SinDerivar 4.0 Internacional</a></p>

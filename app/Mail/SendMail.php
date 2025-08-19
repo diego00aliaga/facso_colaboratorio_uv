@@ -30,7 +30,7 @@ class SendMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-			from: new Address('contacto.colaboratoriouchile@facso.cl','Web Colaboratorio'),
+			from: new Address('investigacion.facso@uv.cl','Web Colaboratorio'),
             subject: 'Contacto web desde Colaboratorio',
         );
     }

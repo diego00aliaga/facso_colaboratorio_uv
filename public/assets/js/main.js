@@ -79,7 +79,7 @@ $(document).ready(function() {
 	function resetear() {
 		$(".navbar").addClass("navbar-dark").removeClass("navbar-light white");
 		$("#logoColab").attr("src", "//colaboratoriocienciassociales.uv.cl/assets/images/uv/logo_colaboratorio2.png");
-		$("#logo-menu").attr("src", "//colaboratoriocienciassociales.uv.cl/assets/images/logo_colaboratorio_menu.png");
+		$("#logo-menu").attr("src", "//colaboratoriocienciassociales.uv.cl/assets/images/uv/logo_colaboratorio_menu.png");
 		$("#logoFooter").attr("src", "//colaboratoriocienciassociales.uv.cl/assets/images/logo_colaboratorio_blanco.png");
 		$("#logoUChile").attr("src", "//colaboratoriocienciassociales.uv.cl/assets/images/logoUChile.png");
 		$("#logoFacso").attr("src", "//colaboratoriocienciassociales.uv.cl/assets/images/logo-facso_investiga-white.png");
@@ -115,7 +115,7 @@ $(document).ready(function() {
 		$("body").removeClass("fondoOscuro").toggleClass("fondoClaro");
 		if ($("body").hasClass("fondoClaro")) {
 			$(".navbar").removeClass("navbar-dark").addClass("navbar-light white");
-			$("#logo-menu").attr("src", "//colaboratoriocienciassociales.uv.cl/assets/images/logo_colaboratorio_menu2.png");
+			$("#logo-menu").attr("src", "//colaboratoriocienciassociales.uv.cl/assets/images/uv/logo_menu_negro.png");
 			$("#logoFooter").attr("src", "//colaboratoriocienciassociales.uv.cl/assets/images/logo_colaboratorio.png");
 			$("#logoUChile").attr("src", "//colaboratoriocienciassociales.uv.cl/assets/images/logo-uchile-black.png");
 			$("#logoFacso").attr("src", "//colaboratoriocienciassociales.uv.cl/assets/images/logo-facso_investiga.png");
@@ -124,7 +124,7 @@ $(document).ready(function() {
 	$("#acOscuro").click(function() {
 		resetear();
 		$("body").removeClass("fondoClaro").toggleClass("fondoOscuro");
-		$("#logoColab").attr("src", "assets/images/logo_colaboratorio1.png");
+		$("#logoColab").attr("src", "assets/images/uv/logo_colaboratorio_blanco.png");
 		$("#test1").attr("src", "//colaboratoriocienciassociales.uv.cl/assets/images/test1-1.png");
 		$("#test2").attr("src", "//colaboratoriocienciassociales.uv.cl/assets/images/test2-1.png");
 		$("#test3").attr("src", "//colaboratoriocienciassociales.uv.cl/assets/images/test3-1.png");

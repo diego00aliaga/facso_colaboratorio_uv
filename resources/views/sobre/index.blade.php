@@ -8,7 +8,7 @@
                 <h4 class="bebas">Sobre el Colaboratorio</h4>
             </div>
             <div class="col-lg-10 col-xl-8 pb-4">
-				<p>Es un <span class="b600">sistema abierto</span> que divulga la producción científica de investigadoras/es de la Facultad de Ciencias Sociales de la Universidad de Chile. Busca <span class="b600">reconocer sus trayectorias</span> e impulsar <span class="b600">una gestión del conocimiento</span> en lógica <span class="b600">colaborativa, abierta y transdisciplinar</span>.</p>
+				<p>Es un <span class="b600">sistema abierto</span> que divulga la producción científica de investigadoras/es de la Facultad de Ciencias Sociales de la Universidad de Valparaíso. Busca <span class="b600">reconocer sus trayectorias</span> e impulsar <span class="b600">una gestión del conocimiento</span> en lógica <span class="b600">colaborativa, abierta y transdisciplinar</span>. Esta iniciativa se desarrolla en colaboración con la Facultad de Ciencias Sociales de la Universidad de Chile.</p>
 				<h4 class="bebas text-center mt-5">¿CUÁLES SON LOS APORTES DEL CO-LABORATORIO?</h4>
 				<p class="mt-4">Es un espacio de <span class="b600">reconocimiento a las trayectorias de producción científica</span>, desarrolladas por distintas generaciones de investigadores/as, para que su legado sea parte activa del acervo intelectual de nuestra comunidad investigativa</p>
 				<p>Se gestiona en <span class="b600">lógica colaborativa</span>, por cuanto sus contenidos son aportados por las/los propios/as investigadores/as que ponen a disposición sus investigaciones, conformando con ello una potente herramienta de innovación pedagógica en la formación de nuevas/os investigadoras/es.</p>
@@ -29,26 +29,57 @@
 					<p class="b800 mb-0 text-center">EQUIPO ACADÉMICO</p>
 				</div>
 				<div class="col-sm-6 col-md-4 col-xl-3 pb-5">
-					<img class="img-fluid z-depth-1 mb-2" src="{{ asset('assets/images/colaboratorio_Teresa_Matus.jpg') }}" alt="Teresa Matus">
-					<p class="mb-0 text-start b600">Teresa Matus</p>
-					<p class="mb-0 pb-2 text-start border-bottom">Decana Facultad de Ciencias Sociales (FACSO)</p>
+					<img class="img-fluid z-depth-1 mb-2" src="{{ asset('assets/images/uv/equipo_academico/decano.jpg') }}" alt="Gonzalo Lira">
+					<p class="mb-0 text-start b600">Gonzalo Lira</p>
+					<p class="mb-0 pb-2 text-start border-bottom">Decano Facultad de Ciencias Sociales (FACSO)</p>
 				</div>
 				<div class="col-sm-6 col-md-4 col-xl-3 pb-5">
-					<img class="img-fluid z-depth-1 mb-2" src="{{ asset('assets/images/colaboratorio_Antonieta_Urquieta.jpg') }}" alt="Antonieta Urquieta">
-					<p class="mb-0 text-start b600">Antonieta Urquieta</p>
-					<p class="mb-0 pb-2 text-start border-bottom">Directora Proyecto FIDA FACSO Abierta</p>
+					<img class="img-fluid z-depth-1 mb-2" src="{{ asset('assets/images/uv/equipo_academico/secretaria.jpg') }}" alt="Cecilia Concha">
+					<p class="mb-0 text-start b600">Cecilia Concha</p>
+					<p class="mb-0 pb-2 text-start border-bottom">Secretaria Facultad de Ciencias Sociales (FACSO)</p>
 				</div>
 				<div class="col-sm-6 col-md-4 col-xl-3 pb-5">
-					<img class="img-fluid z-depth-1 mb-2" src="{{ asset('assets/images/colaboratorio_Maria_Gloria_Abarca.jpg') }}" alt="María Gloria Abarca">
-					<p class="mb-0 text-start b600">María Gloria Abarca</p>
-					<p class="mb-0 pb-2 text-start border-bottom">Encargada de producción de desarrollo</p>
+					<img class="img-fluid z-depth-1 mb-2" src="{{ asset('assets/images/uv/equipo_academico/coordinadora.jpg') }}" alt="Ximena Faúndez">
+					<p class="mb-0 text-start b600">Ximena Faúndez</p>
+					<p class="mb-0 pb-2 text-start border-bottom">Coordinadora de investigación (FACSO)</p>
+				</div>
+				<div class="col-sm-6 col-md-4 col-xl-3 pb-5">
+					<img class="img-fluid z-depth-1 mb-2" src="{{ asset('assets/images/uv/equipo_academico/cecilia_porto.jpg') }}" alt="Cecilia Porto Fuentes">
+					<p class="mb-0 text-start b600">Cecilia Porto Fuentes</p>
+					<p class="mb-0 pb-2 text-start border-bottom">Coordinadora de Vinculación con el Medio</p>
+				</div>
+				<div class="col-sm-6 col-md-4 col-xl-3 pb-5">
+					<img class="img-fluid z-depth-1 mb-2" src="{{ asset('assets/images/uv/equipo_academico/jose_manuel_gaete.jpg') }}" alt="José Manuel Gaete Fiscella">
+					<p class="mb-0 text-start b600">José Manuel Gaete Fiscella</p>
+					<p class="mb-0 pb-2 text-start border-bottom">Coordinador de postgrado y postítulo</p>
+				</div>
+
+				<div class="col-sm-6 col-md-4 col-xl-3 pb-5">
+					<img class="img-fluid z-depth-1 mb-2" src="{{ asset('assets/images/uv/equipo_academico/marisol_rojas.jpg') }}" alt="Marisol Rojas Contreras">
+					<p class="mb-0 text-start b600">Marisol Rojas Contreras</p>
+					<p class="mb-0 pb-2 text-start border-bottom">Coordinadora Administrativa</p>
+				</div>
+				<div class="col-sm-6 col-md-4 col-xl-3 pb-5">
+					<img class="img-fluid z-depth-1 mb-2" src="{{ asset('assets/images/uv/equipo_academico/daniela_jara.jpg') }}" alt="Daniela Jara Leiva">
+					<p class="mb-0 text-start b600">Daniela Jara Leiva</p>
+					<p class="mb-0 pb-2 text-start border-bottom">Directora Escuela Sociología</p>
+				</div>
+				<div class="col-sm-6 col-md-4 col-xl-3 pb-5">
+					<img class="img-fluid z-depth-1 mb-2" src="{{ asset('assets/images/uv/equipo_academico/carlos_varas.jpg') }}" alt="Carlos Varas Alfaro">
+					<p class="mb-0 text-start b600">Carlos Varas Alfaro</p>
+					<p class="mb-0 pb-2 text-start border-bottom">Director Escuela Psicología</p>
+				</div>
+				<div class="col-sm-6 col-md-4 col-xl-3 pb-5">
+					<img class="img-fluid z-depth-1 mb-2" src="{{ asset('assets/images/uv/equipo_academico/mauricio_ureta.jpg') }}" alt="Mauricio Ureta Bernal">
+					<p class="mb-0 text-start b600">Mauricio Ureta Bernal</p>
+					<p class="mb-0 pb-2 text-start border-bottom">Director Escuela Trabajo Social</p>
 				</div>
 			</div>
 			<div class="row justify-content-center">
 				<div class="col-12 pb-5">
 					<p class="b800 mb-0 text-center">EQUIPO PROFESIONAL</p>
 				</div>
-				<div class="col-sm-6 col-md-4 col-xl-3 pb-5">
+				<!-- <div class="col-sm-6 col-md-4 col-xl-3 pb-5">
 					<img class="img-fluid z-depth-1 mb-2" src="{{ asset('assets/images/colaboratorio_Susan_Fuentes.jpg') }}" alt="Susan Fuentes">
 					<p class="mb-0 text-start b600">Susan Fuentes</p>
 					<p class="mb-0 pb-2 text-start border-bottom">Coordinadora ejecutiva</p>
@@ -97,7 +128,7 @@
 					<img class="img-fluid z-depth-1 mb-2" src="{{ asset('assets/images/colaboratorio_Juan_Carlos_Valenzuela.jpg') }}" alt="Juan Carlos Valenzuela">
 					<p class="mb-0 text-start b600">Juan Carlos Valenzuela</p>
 					<p class="mb-0 pb-2 text-start border-bottom">Producción audiovisual</p>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</section>

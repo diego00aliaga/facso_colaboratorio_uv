@@ -12,7 +12,7 @@
             <div class="col-lg-10 col-xl-8 text-center">
               <!-- <img class="img-fluid mx-auto mb-5" src="images/logo-facso_investiga.png" width="280" alt="FACSO abierta"> -->
               <img class="img-fluid mx-auto mb-5" src="images/logo_colaboratorio.png" width="420" alt="Colaboratorio de investigación en Ciencias Sociales">
-              <h5 class="text-start mb-5 b600" style="position: relative;">Es un <span class="azul">sistema abierto</span> que divulga la producción científica de investigadoras/es de la Facultad de Ciencias Sociales de la Universidad de Chile. Busca reconocer sus trayectorias e impulsar una <span class="azul">gestión del conocimiento</span> en lógica <span class="azul">colaborativa, abierta y transdisciplinar</span>.</h5>
+              <h5 class="text-start mb-5 b600" style="position: relative;">Es un <span class="azul">sistema abierto</span> que divulga la producción científica de investigadoras/es de la Facultad de Ciencias Sociales de la Universidad de Valparaíso. Busca reconocer sus trayectorias e impulsar una <span class="azul">gestión del conocimiento</span> en lógica <span class="azul">colaborativa, abierta y transdisciplinar</span>. Esta iniciativa se desarrolla en colaboración con la Facultad de Ciencias Sociales de la Universidad de Chile.</h5>
               <!-- Temas -->
               <div class="text-start" id="searchTemas">
                 <div class="form-check">
@@ -53,7 +53,7 @@
   <nav class="navbar navbar-expand-lg sticky-top navbar-dark elegant-color-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="index.html">
-        <img src="images/logo_colaboratorio_menu.png" width="150">
+        <img src="images/uv/logo_colaboratorio_menu.png" width="150">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

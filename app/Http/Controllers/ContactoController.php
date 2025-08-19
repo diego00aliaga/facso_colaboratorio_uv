@@ -14,7 +14,7 @@ class ContactoController extends Controller
 
 	public function send(Request $request)
 	{
-		Mail::to('contacto.colaboratoriouchile@facso.cl')
+		Mail::to('investigacion.facso@uv.cl')
 		    ->send(new SendMail($request->all()));
 		return view('contacto.enviado');
 	}

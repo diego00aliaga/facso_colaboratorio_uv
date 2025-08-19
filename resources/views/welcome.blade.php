@@ -8,7 +8,7 @@
 		<div class="row justify-content-center align-items-center" style="min-height: 70vh;">
 			<div class="col-lg-10 col-xl-8 text-center">
 				<img class="img-fluid mx-auto mb-5" src="{{ asset('assets/images/uv/logo_colaboratorio2.png') }}" width="600" alt="Colaboratorio de investigación en Ciencias Sociales" id="logoColab">
-				<h5 class="text-start mb-5 b600" style="position: relative;">Es un <span class="azul">sistema abierto</span> que divulga la producción científica de investigadoras/es de la Facultad de Ciencias Sociales de la Universidad de Chile. Busca <span class="azul">reconocer sus trayectorias</span> e impulsar una <span class="azul">gestión del conocimiento</span> en lógica <span class="azul">colaborativa, abierta y transdisciplinar</span>.</h5>
+				<h5 class="text-start mb-5 b600" style="position: relative;">Es un <span class="azul">sistema abierto</span> que divulga la producción científica de investigadoras/es de la Facultad de Ciencias Sociales de la Universidad de Valparaíso. Busca reconocer sus trayectorias e impulsar una <span class="azul">gestión del conocimiento</span> en lógica <span class="azul">colaborativa, abierta y transdisciplinar</span>. Esta iniciativa se desarrolla en colaboración con la Facultad de Ciencias Sociales de la Universidad de Chile.</h5>
 				<div class="text-start" id="searchTemas">
 					<form id="buscador" name="buscador" action="{{ route('resultados') }}" method="post">
 					@csrf
@@ -52,7 +52,7 @@
 <nav class="navbar navbar-expand-lg sticky-top navbar-dark elegant-color-dark">
 	<div class="container-fluid">
 		<a class="navbar-brand" href="{{ route('home') }}">
-			<img src="{{ asset('assets/images/logo_colaboratorio_menu.png') }}" width="150" id="logo-menu">
+			<img src="{{ asset('assets/images/uv/logo_colaboratorio_menu.png') }}" width="150" id="logo-menu">
 		</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<i class="far fa-bars"></i>
@@ -75,7 +75,7 @@
 			</ul>
 			<ul class="navbar-nav ms-auto align-items-lg-center">
 				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-bs-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">Accesibilidad<i class="fal fa-universal-access fa-lg ms-2"></i></a>
+					<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Accesibilidad<i class="fal fa-universal-access fa-lg ms-2"></i></a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 						<a id="auemntarTexto" class="dropdown-item">Aumentar tamaño texto<i class="far fa-search-plus ms-2"></i></a>
 						<a id="disminuirTexto" class="dropdown-item">Disminuir tamaño texto<i class="far fa-search-minus ms-2"></i></a>
@@ -96,7 +96,7 @@
     <div class="row justify-content-center">
         <div class="col-lg-8 col-xl-6 text-center">
             <img class="img-fluid mb-5" src="{{ asset('assets/images/test1.png') }}" id="test1">
-            <p class='text-start'>Es un <span class='b600'>sistema abierto</span> que divulga la producción científica de investigadoras/es de la Facultad de Ciencias Sociales de la Universidad de Chile. Busca <span class='b600'>reconocer sus trayectorias</span> e impulsar una <span class='b600'>gestión del conocimiento</span> en lógica <span class='b600'>colaborativa, abierta y transdisciplinar</span>.</p>
+			<h5 class="text-start mb-5 b600" style="position: relative;">Es un <span class="azul">sistema abierto</span> que divulga la producción científica de investigadoras/es de la Facultad de Ciencias Sociales de la Universidad de Valparaíso. Busca reconocer sus trayectorias e impulsar una <span class="azul">gestión del conocimiento</span> en lógica <span class="azul">colaborativa, abierta y transdisciplinar</span>. Esta iniciativa se desarrolla en colaboración con la Facultad de Ciencias Sociales de la Universidad de Chile.</h5>
             <p class='text-start'><span class='b600'>Es un espacio de reconocimiento a las trayectorias</span>, por cuanto no sólo divulga investigaciones y resultados de proyectos vigentes, sino que muestra su producción científica a lo largo de su vida académica.</p>
             <a class="btn bg-rosa" href="{{ route('sobre') }}">Leer más sobre el colaboratorio<i class="far fa-plus fa-lg ms-2"></i></a>
         </div>
