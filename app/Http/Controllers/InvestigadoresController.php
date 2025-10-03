@@ -56,6 +56,17 @@ class InvestigadoresController extends Controller
 		->orderBy('proyectos.id','desc')
 		->paginate(5);
 
+        // CÓDIGO CORREGIDO
+        $publicaciones = \App\Models\Publicaciones::select( // <-- 1. Empezar con el modelo Publicacion
+            'publicaciones.id as id_publicacion',
+            'publicaciones.titulo',
+            'publicaciones.fecha_publicacion' // <-- 2. Usar las columnas correctas de la tabla
+            )
+        ->join('facso_app.publicaciones_investigador', 'publicaciones_investigador.id_publicacion', '=', 'publicaciones.id') // <-- 3. Unir con la tabla intermedia
+        ->where('publicaciones_investigador.id_investigador', '=', $id) // <-- 4. Filtrar por el ID en la tabla intermedia
+        ->orderBy('publicaciones.id', 'desc')
+        ->get(); // <-- 5. Usa get() para que funcione con tu json_encode
+
         $proyectos2 = Proyectos::select(
             'proyectos.id',
             'proyectos.titulo',
@@ -68,7 +79,7 @@ class InvestigadoresController extends Controller
             ->get();
 
         $pro_final = json_encode($proyectos2);
-
+        $pub_final = json_encode($publicaciones);
 		$nucleos = Investigadores::select(
 			'investigadores.asociatividad_1',
 			'n1.nombre as nombre_1',
@@ -87,7 +98,7 @@ class InvestigadoresController extends Controller
 		->get();
 		$nucleos=$nucleos[0];
 
-        return view('investigadores.show', compact('investigador','proyectos','nucleos','pro_final'))
+        return view('investigadores.show', compact('investigador','proyectos','nucleos','pro_final','pub_final'))
 		->with('i', (request()->input('page', 1) - 1) * $proyectos->perPage());
     }
 	/*

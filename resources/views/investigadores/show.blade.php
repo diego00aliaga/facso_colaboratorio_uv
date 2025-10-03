@@ -95,70 +95,97 @@
 				@endif
 			</div>
 		</div>
-		<!-- Proyectos asociados -->
-		@if (count($proyectos)>0)
+		<!-- Acordeón de Proyectos, Publicaciones y Recursos -->
 		<div class="row">
 			<div class="col-12">
-				<h5 class="bebas">Proyectos asociados:</h5>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-12">
-                <table id="cargarResultados"
-                       data-classes="table table-sm dt-responsive nowrap"
-                       style="color: black;"
-                       data-toolbar="#toolbar"
-                       data-search="true"
-                       data-show-refresh="false"
-                       data-show-toggle="false"
-                       data-show-fullscreen="false"
-                       data-buttons-class="primary"
-                       data-show-columns="false"
-                       data-show-columns-toggle-all="false"
-                       data-detail-view="false"
-                       data-show-export="false"
-                       data-click-to-select="false"
-                       data-detail-formatter="detailFormatter"
-                       data-minimum-count-columns="2"
-                       data-show-pagination-switch="false"
-                       data-pagination="true"
-                       data-id-field="id"
-                       data-show-header="false"
-                       data-page-list="[10, 25, 50, 100, All]"
-                       data-page-size="5"
-                       data-show-footer="false"
-                       data-filter-control="true"
-                       data-url=""
-                >
-                    <thead>
-                    <tr class="text-center">
-                        <th data-field="" data-formatter="resultado" style="display: none;">Resultado</th>
-                    </tr>
-                    </thead>
-                </table>
-				<div id="carouselProyectosInvestigador" class="carousel slide" data-bs-ride="false" data-bs-interval="false" data-bs-touch="true" style="display: none;">
-					<div class="carousel-inner">
-						<div class="carousel-item active container-fluid px-0">
-							<div class="row justify-content-between border-bottom my-3">
-								@foreach ($proyectos as $pro)
-								<div class="col-lg-8 pb-2">
-									<a href="../../ficha/proyecto/{{ $pro->id }}" class="mb-0 b600 link-line link-simple">{{ $pro->titulo }}</a>
-									<p class="mb-0"><a href="../../investigadores-ficha-{{ $investigador->id }}" class="link-simple link-line">{{ $investigador->funcionario }}</a></p>
-									<p class="mb-0">{{ $pro->fecha_inicio }} - {{ $pro->fecha_finalizacion}}</p>
-								</div>
-								<div class="col-lg-4 pt-lg-4 pb-4">
-									<p class="mb-0">Proyecto de investigación<i class="far fa-file-search fa-lg ms-2 azul"></i></p>
-								</div>
-								@endforeach
+				<div class="accordion" id="accordionExample">
+					<div class="accordion-item">
+						<h2 class="accordion-header" id="headingZero">
+							<button class="accordion-button bebas collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseZero" aria-expanded="false" aria-controls="collapseZero">
+								<h5 class="mb-0">Proyectos</h5>
+							</button>
+						</h2>
+						<div id="collapseZero" class="accordion-collapse collapse" aria-labelledby="headingZero" data-bs-parent="#accordionExample">
+							<div class="accordion-body">
+								<table id="cargarResultados"
+								       style="color: black;"
+								       data-classes="table table-sm dt-responsive nowrap"
+								       data-search="true"
+								       data-pagination="true"
+								       data-page-size="5"
+								       data-page-list="[10, 25, 50, 100, All]"
+								       data-show-header="false">
+									<thead style="display: none;">
+										<tr class="text-center">
+											<th data-field="" data-formatter="resultado">Resultado</th>
+										</tr>
+									</thead>
+									<tbody>
+									</tbody>
+								</table>
 							</div>
 						</div>
 					</div>
-					{{ $proyectos->links('layout.pagination') }}
+
+					<div class="accordion-item">
+						<h2 class="accordion-header" id="headingOne">
+							<button class="accordion-button bebas collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+								<h5 class="mb-0">Publicaciones</h5>
+							</button>
+						</h2>
+						<div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+							<div class="accordion-body">
+								<table id="cargarResultados2"
+								       style="color: black;"
+								       data-classes="table table-sm dt-responsive nowrap"
+								       data-search="true"
+								       data-pagination="true"
+								       data-page-size="5"
+								       data-page-list="[10, 25, 50, 100, All]"
+								       data-show-header="false">
+									<thead style="display: none;">
+										<tr class="text-center">
+											<th data-field="" data-formatter="resultado2">Resultado</th>
+										</tr>
+									</thead>
+									<tbody>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+
+					<div class="accordion-item">
+						<h2 class="accordion-header" id="headingTwo">
+							<button class="accordion-button bebas collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+								<h5 class="mb-0">Recursos</h5>
+							</button>
+						</h2>
+						<div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+							<div class="accordion-body">
+								<table id="cargarResultados3"
+								       style="color: black;"
+								       data-classes="table table-sm dt-responsive nowrap"
+								       data-search="true"
+								       data-pagination="true"
+								       data-page-size="5"
+								       data-page-list="[10, 25, 50, 100, All]"
+								       data-show-header="false">
+									<thead style="display: none;">
+										<tr class="text-center">
+											<th data-field="" data-formatter="resultado3">Resultado</th>
+										</tr>
+									</thead>
+									<tbody>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
-		@endif
-		<!-- End Proyectos Asociados -->
+		<!-- End Acordeón -->
 	</div>
 	<!-- Video Modal -->
 	<div class="modal fade" id="modalVideo" tabindex="-1" role="dialog" aria-labelledby="modalVideo" aria-hidden="true">
@@ -201,23 +228,72 @@
         let $tableresultados = $('#cargarResultados');
         initTable();
 
+		let $tableresultados2 = $('#cargarResultados2');
+		initTable2();
+
+		let $tableresultados3 = $('#cargarResultados3');
+		initTable3();
+
         function initTable() {
             let data = {!! $pro_final !!};
             $tableresultados.bootstrapTable({data: data});
         }
-        function resultado(value, row, index){
-            return [
-                '<div class="row justify-content-between">'+
-                '<div class="col-lg-8 pb-2">' +
-                '<a href="../../ficha/proyecto/'+ row.id +'" class="mb-0 b600 link-line link-simple">'+ row.titulo +'</a>' +
-                '<p class="mb-0" style="display:none;"><a href="../../investigadores-ficha-{{ $investigador->id }}" class="link-simple link-line">{{ $investigador->funcionario }}</a></p>' +
-                '<p class="mb-0">'+ row.fecha_inicio +' - '+ row.fecha_finalizacion +'</p>' +
-                '</div>' +
-                '<div class="col-lg-4 pt-lg-4 pb-4">' +
-                '<p class="mb-0">Proyecto de investigación<i class="far fa-file-search fa-lg ms-2 azul"></i></p>'+
-                '</div>'+
-                '</div>'
-            ].join('');
+
+        function initTable2() {
+            let data = {!! $pub_final ?? '[]' !!};
+            $tableresultados2.bootstrapTable({data: data});
         }
+
+        function initTable3() {
+            let data = {!! $rec_final ?? '[]' !!};
+            $tableresultados3.bootstrapTable({data: data});
+        }
+		function resultado(value, row, index) {
+        console.log('Datos de la fila (Proyectos):', row);
+        return [
+        '<div class="row justify-content-between">' +
+        '<div class="col-lg-8 pb-2">' +
+        '<a href="../../ficha/proyecto/' + row.id + '" class="mb-0 b600 link-line link-simple">' + row.titulo + '</a>' +
+        '<p class="mb-0" style="display:none;"><a href="../../investigadores-ficha-8" class="link-simple link-line">Nicolás Angelcos</a></p>' +
+        '<p class="mb-0">' + row.fecha_inicio + ' - ' + row.fecha_finalizacion + '</p>' +
+        '</div>' +
+        '<div class="col-lg-4 pt-lg-4 pb-4">' +
+        '<p class="mb-0">Proyecto de investigación<i class="far fa-file-search fa-lg ms-2 azul"></i></p>' +
+        '</div>' +
+        '</div>'
+        ].join('');
+    }
+    function resultado2(value, row, index) {
+        console.log('Datos de la fila (Publicaciones):', row);
+        if (row.fecha_publicacion == '') {
+            publicar = '';
+        } else {
+            publicar = 'Fecha de publicación: <b>' + row.fecha_publicacion + '</b>';
+        }
+
+        return [
+        '<div class="row justify-content-between">' +
+        '<div class="col-lg-8 pb-2">' +
+        '<p class="mb-0 b600"><a class="link-simple link-line" href="/ficha/publicacion/' + row.id_publicacion + '" >' + row.titulo + '</a>' +
+        '<p class="mb-0"><a href="../../investigadores-ficha-8" class="link-simple link-line">{{ $investigador->funcionario }}</a></p>' +
+        '<p class="mb-0">' + publicar + '</p>' +
+        '</div>' +
+        '</div>'
+        ].join('');
+    }
+    function resultado3(value, row, index) {
+        console.log('Datos de la fila (Recursos):', row);
+        return [
+        '<div class="row justify-content-between">' +
+        '<div class="col-12 pb-2">' +
+        '<p class="mb-0 b600"><a class="link-simple link-line" href="/ficha/recursos/' + row.id_documento + '" >' + row.titulo + '</a>' +
+        '<p class="mb-0"><a href="../../investigadores-ficha-8" class="link-simple link-line">Nicolás Angelcos</a></p>' +
+        '<p class="mb-0">Año: <b>' + row.anio_publicacion + '</b></p>' +
+        '<p class="mb-0">Tipo de Recurso: <b>' + row.tipo_documento + '</b></p>' +
+        '<p class="mb-0">Proyecto Asociado: <a href="../../ficha/proyecto/' + row.id_proyecto + '" class="mb-0 b600 link-line link-simple">' + row.protitulo + '</a></p>' +
+        '</div>' +
+        '</div>'
+        ].join('');
+    }
     </script>
 @endpush
