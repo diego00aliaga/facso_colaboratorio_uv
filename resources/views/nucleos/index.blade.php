@@ -7,9 +7,9 @@
 			<div class="col-md-10 col-lg-8 col-xl-6 text-center">
 				<img class="img-fluid mb-5" src="{{ asset('assets/images/test7.png') }}" width="500" id="test7">
 				<h4 class="bebas">Núcleos y Programas</h4>
-				<p class="text-start">La Facultad de Ciencias Sociales (FACSO) de la Universidad de Chile impulsa una política de asociatividad mediante la cual sus académicas y académicos conforman espacios de investigación enfocados en la discusión conceptual, en el desarrollo del conocimiento en diversas áreas temáticas y disciplinares y en la generación de incidencia pública a partir de la ideación y desarrollo de propuestas innovadoras para el abordaje de fenómenos y problemáticas sociales.</p>
-				<p class="text-start">Actualmente, nuestra Facultad cuenta con 34 núcleos y programas que trabajan de manera colaborativa, compartiendo recursos y aprendizajes para avanzar en objetivos comunes, bajo un espíritu de colaboración y de asociatividad en la producción de conocimiento.</p>
-			</div>
+				<p style="text-align: justify; text-align-last: left;">La Facultad de Ciencias Sociales (FACSO) de la Universidad de Chile impulsa una política de asociatividad mediante la cual sus académicas y académicos conforman espacios de investigación enfocados en la discusión conceptual, en el desarrollo del conocimiento en diversas áreas temáticas y disciplinares y en la generación de incidencia pública a partir de la ideación y desarrollo de propuestas innovadoras para el abordaje de fenómenos y problemáticas sociales.</p>
+
+<p style="text-align: justify; text-align-last: left;">Actualmente, nuestra Facultad cuenta con 34 núcleos y programas que trabajan de manera colaborativa, compartiendo recursos y aprendizajes para avanzar en objetivos comunes, bajo un espíritu de colaboración y de asociatividad en la producción de conocimiento.</p>	</div>
 		</div>
 	</div>
 	<!-- Listado de Nucleos -->

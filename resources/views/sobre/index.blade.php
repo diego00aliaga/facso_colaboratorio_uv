@@ -7,19 +7,27 @@
                 <img class="img-fluid mb-4" src="{{ asset('assets/images/test2.png') }}" width="500" id="test2">
                 <h4 class="bebas">Sobre el Colaboratorio</h4>
             </div>
-            <div class="col-lg-10 col-xl-8 pb-4">
-				<p>Es un <span class="b600">sistema abierto</span> que divulga la producción científica de investigadoras/es de la Facultad de Ciencias Sociales de la Universidad de Valparaíso. Busca <span class="b600">reconocer sus trayectorias</span> e impulsar <span class="b600">una gestión del conocimiento</span> en lógica <span class="b600">colaborativa, abierta y transdisciplinar</span>. Esta iniciativa se desarrolla en colaboración con la Facultad de Ciencias Sociales de la Universidad de Chile.</p>
-				<h4 class="bebas text-center mt-5">¿CUÁLES SON LOS APORTES DEL CO-LABORATORIO?</h4>
-				<p class="mt-4">Es un espacio de <span class="b600">reconocimiento a las trayectorias de producción científica</span>, desarrolladas por distintas generaciones de investigadores/as, para que su legado sea parte activa del acervo intelectual de nuestra comunidad investigativa</p>
-				<p>Se gestiona en <span class="b600">lógica colaborativa</span>, por cuanto sus contenidos son aportados por las/los propios/as investigadores/as que ponen a disposición sus investigaciones, conformando con ello una potente herramienta de innovación pedagógica en la formación de nuevas/os investigadoras/es.</p>
-				<p>El Co-Laboratorio adopta una lógica de <span class="b600">Ciencia Abierta</span>, en tanto proporciona un espacio de divulgación del conocimiento accesible para académicos/as, investigadores/as en formación, estudiantes y público general, bajo el horizonte de promover colaboraciones científicas y el intercambio de información en beneficio de la ciencia y sociedad. Cada recurso contenido en esta plataforma cuenta con un identificador que permite divulgar, referenciar y citar los respectivos trabajos, aportando con ello a la producción de conocimiento en el campo de las Ciencias Sociales.</p>
-				<p>Se sustenta desde un <span class="b600">enfoque transdisciplinar</span>, reconociendo que la construcción del conocimiento en una lógica colaborativa entre diferentes disciplinas y campos del saber permite desarrollar abordajes más complejos sobre lo social.</p>
-				<p>Articula una <span class="b600">red a través del acoplamiento de Co-laboratorios de Ciencias Sociales en Chile</span>, configurándose como una herramienta de fortalecimiento político con propósito público, que amplía la divulgación e incidencia de las Ciencias Sociales en el país.</p>
-				<div class="text-center pt-3 pb-5">
-				  <a class="btn bg-rosa" href="{{ asset('assets/docs/Ciencias_Sociales_para_Chile._Red_de_Co-Laboratorios_de_Investigacion_en_Ciencias_Sociales._Premisas_del_modelo.pdf') }}" download>Premisas del modelo<i class="fal fa-file-pdf fa-lg ms-2"></i></a>
-				</div>
-				<p class="tx-chico"><span class="b600">Para citar el Co-Laboratorio</span>: Urquieta, A., Matus, T., y Abarca, M.G. (2024). Co-Laboratorio de Investigación en Ciencias Sociales. Universidad de Chile. https://colaboratoriocienciassociales.uchile.cl/.</p>
-            </div>
+			<div class="col-lg-10 col-xl-8 pb-4">
+    <p style="text-align: justify; text-align-last: left;">Es un <span class="b600">sistema abierto</span> que divulga la producción científica de investigadoras/es de la Facultad de Ciencias Sociales de la Universidad de Valparaíso. Busca <span class="b600">reconocer sus trayectorias</span> e impulsar <span class="b600">una gestión del conocimiento</span> en lógica <span class="b600">colaborativa, abierta y transdisciplinar</span>. Esta iniciativa se desarrolla en colaboración con la Facultad de Ciencias Sociales de la Universidad de Chile.</p>
+    
+    <h4 class="bebas text-center mt-5">¿CUÁLES SON LOS APORTES DEL CO-LABORATORIO?</h4>
+    
+    <p class="mt-4" style="text-align: justify; text-align-last: left;">Es un espacio de <span class="b600">reconocimiento a las trayectorias de producción científica</span>, desarrolladas por distintas generaciones de investigadores/as, para que su legado sea parte activa del acervo intelectual de nuestra comunidad investigativa.</p>
+    
+    <p style="text-align: justify; text-align-last: left;">Se gestiona en <span class="b600">lógica colaborativa</span>, por cuanto sus contenidos son aportados por las/los propios/as investigadores/as que ponen a disposición sus investigaciones, conformando con ello una potente herramienta de innovación pedagógica en la formación de nuevas/os investigadoras/es.</p>
+    
+    <p style="text-align: justify; text-align-last: left;">El Co-Laboratorio adopta una lógica de <span class="b600">Ciencia Abierta</span>, en tanto proporciona un espacio de divulgación del conocimiento accesible para académicos/as, investigadores/as en formación, estudiantes y público general, bajo el horizonte de promover colaboraciones científicas y el intercambio de información en beneficio de la ciencia y sociedad. Cada recurso contenido en esta plataforma cuenta con un identificador que permite divulgar, referenciar y citar los respectivos trabajos, aportando con ello a la producción de conocimiento en el campo de las Ciencias Sociales.</p>
+    
+    <p style="text-align: justify; text-align-last: left;">Se sustenta desde un <span class="b600">enfoque transdisciplinar</span>, reconociendo que la construcción del conocimiento en una lógica colaborativa entre diferentes disciplinas y campos del saber permite desarrollar abordajes más complejos sobre lo social.</p>
+    
+    <p style="text-align: justify; text-align-last: left;">Articula una <span class="b600">red a través del acoplamiento de Co-laboratorios de Ciencias Sociales en Chile</span>, configurándose como una herramienta de fortalecimiento político con propósito público, que amplía la divulgación e incidencia de las Ciencias Sociales en el país.</p>
+    
+    <div class="text-center pt-3 pb-5">
+        <a class="btn bg-rosa" href="{{ asset('assets/docs/Ciencias_Sociales_para_Chile._Red_de_Co-Laboratorios_de_Investigacion_en_Ciencias_Sociales._Premisas_del_modelo.pdf') }}" download>Premisas del modelo<i class="fal fa-file-pdf fa-lg ms-2"></i></a>
+    </div>
+    
+    <p class="tx-chico" style="text-align: justify; text-align-last: left;"><span class="b600">Para citar el Co-Laboratorio</span>: Urquieta, A., Matus, T., y Abarca, M.G. (2024). Co-Laboratorio de Investigación en Ciencias Sociales. Universidad de Chile. https://colaboratoriocienciassociales.uchile.cl/.</p>
+</div>
         </div>
     </div>
 	<section class="border-top" id="equipo">

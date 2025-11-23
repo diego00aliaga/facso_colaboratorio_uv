@@ -96,9 +96,11 @@
 			</div>
 		</div>
 		<!-- Acordeón de Proyectos, Publicaciones y Recursos -->
+		@if($tiene_proyectos || $tiene_publicaciones)
 		<div class="row">
 			<div class="col-12">
 				<div class="accordion" id="accordionExample">
+					@if($tiene_proyectos)
 					<div class="accordion-item">
 						<h2 class="accordion-header" id="headingZero">
 							<button class="accordion-button bebas collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseZero" aria-expanded="false" aria-controls="collapseZero">
@@ -126,7 +128,9 @@
 							</div>
 						</div>
 					</div>
+					@endif
 
+					@if($tiene_publicaciones)
 					<div class="accordion-item">
 						<h2 class="accordion-header" id="headingOne">
 							<button class="accordion-button bebas collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
@@ -154,13 +158,14 @@
 							</div>
 						</div>
 					</div>
+					@endif
 
 					<div class="accordion-item">
-						<h2 class="accordion-header" id="headingTwo">
+						<!-- <h2 class="accordion-header" id="headingTwo">
 							<button class="accordion-button bebas collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
 								<h5 class="mb-0">Recursos</h5>
 							</button>
-						</h2>
+						</h2> -->
 						<div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
 							<div class="accordion-body">
 								<table id="cargarResultados3"
@@ -185,6 +190,7 @@
 				</div>
 			</div>
 		</div>
+		@endif
 		<!-- End Acordeón -->
 	</div>
 	<!-- Video Modal -->
@@ -225,28 +231,37 @@
 
 @push('js')
     <script type="text/javascript">
-        let $tableresultados = $('#cargarResultados');
-        initTable();
+        // Inicializar tabla de proyectos solo si existe
+        if (document.getElementById('cargarResultados')) {
+            let $tableresultados = $('#cargarResultados');
+            initTable();
+        }
 
-		let $tableresultados2 = $('#cargarResultados2');
-		initTable2();
+        // Inicializar tabla de publicaciones solo si existe
+        if (document.getElementById('cargarResultados2')) {
+            let $tableresultados2 = $('#cargarResultados2');
+            initTable2();
+        }
 
-		let $tableresultados3 = $('#cargarResultados3');
-		initTable3();
+        // Inicializar tabla de recursos solo si existe
+        if (document.getElementById('cargarResultados3')) {
+            let $tableresultados3 = $('#cargarResultados3');
+            initTable3();
+        }
 
         function initTable() {
             let data = {!! $pro_final !!};
-            $tableresultados.bootstrapTable({data: data});
+            $('#cargarResultados').bootstrapTable({data: data});
         }
 
         function initTable2() {
             let data = {!! $pub_final ?? '[]' !!};
-            $tableresultados2.bootstrapTable({data: data});
+            $('#cargarResultados2').bootstrapTable({data: data});
         }
 
         function initTable3() {
             let data = {!! $rec_final ?? '[]' !!};
-            $tableresultados3.bootstrapTable({data: data});
+            $('#cargarResultados3').bootstrapTable({data: data});
         }
 		function resultado(value, row, index) {
         console.log('Datos de la fila (Proyectos):', row);

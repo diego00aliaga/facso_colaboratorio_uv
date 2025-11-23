@@ -80,6 +80,11 @@ class InvestigadoresController extends Controller
 
         $pro_final = json_encode($proyectos2);
         $pub_final = json_encode($publicaciones);
+        
+        // Contadores para determinar si mostrar los acordeones
+        $tiene_proyectos = count($proyectos2) > 0;
+        $tiene_publicaciones = count($publicaciones) > 0;
+        
 		$nucleos = Investigadores::select(
 			'investigadores.asociatividad_1',
 			'n1.nombre as nombre_1',
@@ -98,7 +103,7 @@ class InvestigadoresController extends Controller
 		->get();
 		$nucleos=$nucleos[0];
 
-        return view('investigadores.show', compact('investigador','proyectos','nucleos','pro_final','pub_final'))
+        return view('investigadores.show', compact('investigador','proyectos','nucleos','pro_final','pub_final','tiene_proyectos','tiene_publicaciones'))
 		->with('i', (request()->input('page', 1) - 1) * $proyectos->perPage());
     }
 	/*

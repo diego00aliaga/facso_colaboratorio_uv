@@ -16,7 +16,7 @@
   <meta property="og:url" content="https://colaboratorio.uchile.cl/" /><!-- Revisar URL -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="FACSO Abierta | Colaboratorio" />
-  <meta property="og:description" content="Es un sistema abierto que divulga la producción científica de investigadoras/es de la Facultad de Ciencias Sociales de la Universidad de Valparaíso. Busca reconocer sus trayectorias e impulsar una gestión del conocimiento en lógica colaborativa, abierta y transdisciplinar. Esta iniciativa se desarrolla en colaboración con la Facultad de Ciencias Sociales de la Universidad de Chile." />
+  <meta property="og:description" content="Es un sistema abiertoo que divulga la producción científica de investigadoras/es de la Facultad de Ciencias Sociales de la Universidad de Valparaíso. Busca reconocer sus trayectorias e impulsar una gestión del conocimiento en lógica colaborativa, abierta y transdisciplinar. Esta iniciativa se desarrolla en colaboración con la Facultad de Ciencias Sociales de la Universidad de Chile." />
   <meta property="og:image" content="https://colaboratorio.uchile.cl/images/og-image.png" /><!-- Revisar URL -->
   <meta property="og:image:url" content="https://colaboratorio.uchile.cl/images/og-image.png" /><!-- Revisar URL -->
   <meta property="twitter:image" content="https://colaboratorio.uchile.cl/images/og-t-image.png" /><!-- Revisar URL -->
