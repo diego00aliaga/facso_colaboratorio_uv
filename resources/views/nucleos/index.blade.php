@@ -4,19 +4,64 @@
     <!-- Content -->
 	<div class="container pb-5">
 		<div class="row justify-content-center">
-			<div class="col-md-10 col-lg-8 col-xl-6 text-center">
+			<div class="col-md-18 col-lg-16 col-xl-14 text-center">
 				<img class="img-fluid mb-5" src="{{ asset('assets/images/test7.png') }}" width="500" id="test7">
-				<h4 class="bebas">Núcleos y Programas</h4>
-				<p style="text-align: justify; text-align-last: left;">La Facultad de Ciencias Sociales (FACSO) de la Universidad de Chile impulsa una política de asociatividad mediante la cual sus académicas y académicos conforman espacios de investigación enfocados en la discusión conceptual, en el desarrollo del conocimiento en diversas áreas temáticas y disciplinares y en la generación de incidencia pública a partir de la ideación y desarrollo de propuestas innovadoras para el abordaje de fenómenos y problemáticas sociales.</p>
+				<h4 class="bebas">Centros UV</h4>
+				<p style="text-align: justify; text-align-last: left;">
+				La creación de Centros de Investigación (CIDI) al interior de la Universidad de Valparaíso, tuvo como objetivo fundamental el estímulo a la investigación en todas las áreas del saber, a través de la articulación de una masa crítica de investigadores, cuya actividad impacte el desarrollo de la Universidad, de la región y del país.
+				</p>
+				
+<p style="text-align: justify; text-align-last: left;">Es propósito de la Dirección de Investigación es que los Centros, en el mediano plazo, sean capaces de captar recursos de fondos concursables nacionales e internacionales y logren una productividad científica y tecnológica de excelencia, alineándose con los objetivos institucionales.
 
-<p style="text-align: justify; text-align-last: left;">Actualmente, nuestra Facultad cuenta con 34 núcleos y programas que trabajan de manera colaborativa, compartiendo recursos y aprendizajes para avanzar en objetivos comunes, bajo un espíritu de colaboración y de asociatividad en la producción de conocimiento.</p>	</div>
+	</div>
 		</div>
 	</div>
 	<!-- Listado de Nucleos -->
 	<div class="section">
 		<div class="container py-5">
-			<div class="row">
-				@foreach($nucleos as $nucleo)
+			<div class="row d-flex align-items-stretch">
+			<div class="col-lg-6 col-xl-4 mb-4">
+					<div class="white z-depth-1 text-center redcolab h-100">
+					<img class="img-fluid" src="{{ asset('assets/images/centrosUv/centro-cidcl-700x438.jpg') }}" width="500" id="test7">
+					<a href="https://investigacion.uv.cl/2017/10/02/centro-de-investigacion-del-desarrollo-en-cognicion-y-lenguaje/" style="color: inherit; " target="_blank">
+					<h4 class=" py-3 px-4 border-top" style="">
+						<small>Centro de Investigación del Desarrollo en Cognición y Lenguaje (CIDCL)</small>			
+					</h4>	
+					</a>				
+					</div>
+				</div>
+				<div class="col-lg-6 col-xl-4 mb-4">
+					<div class="white z-depth-1  text-center redcolab h-100">
+					<img class="img-fluid" src="{{ asset('assets/images/centrosUv/centro-cinvit-700x438.jpg') }}" width="" id="test8">
+					<a href="https://investigacion.uv.cl/2017/09/29/centro-de-investigacion-de-vulnerabilidades-e-informalidades-territoriales-cinvit/"  style="color: inherit; "target="_blank">
+					<h4 class="py-3 px-4 border-top " style="">
+						<small>Centro de Investigación de Vulnerabilidades e Informalidades Territoriales (CINVIT)</small>
+					</h4>	
+					</a>				
+					</div>
+				</div>
+
+				<div class="col-lg-6 col-xl-4 mb-4">
+					<div class="white z-depth-1  text-center redcolab h-100">
+					<img class="img-fluid" src="{{ asset('assets/images/centrosUv/ciauv-700x438.jpg') }}" width="" id="test8">
+					<a href="https://investigacion.uv.cl/2017/10/02/centro-de-investigaciones-artisticas/"  style="color: inherit; "target="_blank">
+					<h4 class="py-4 px-4 border-top" style="">
+						<small class="mt-7">Centro de Investigaciones Artísticas (CIA-UV)</small>
+					</h4>	
+					</a>				
+					</div>
+				</div>
+				<div class="col-lg-6 col-xl-4 mb-4">
+					<div class="white z-depth-1  text-center redcolab h-100">
+					<img class="img-fluid" src="{{ asset('assets/images/centrosUv/logo-cei-tesys-700x438.png') }}" width="" id="test8">
+					<a href="https://investigacion.uv.cl/2017/10/02/centro-de-estudios-interdisiciplinarios-en-teoria-social-y-subjetiva/" style="color: inherit; " target="_blank">
+					<h4 class=" py-3 px-4 border-top" style="">
+						<small>Centro de Estudios Interdisciplinarios en Teoría Social y Subjetividad (CEI-TESYS)</small>
+					</h4>	
+					</a>								
+					</div>
+				</div>
+				<!-- @foreach($nucleos as $nucleo)
 				<div class="col-md-6 col-xl-4 mb-5">
 					<div class="z-depth-1 grey lighten-2 p-3 ficha-nucleos">
 						<p class="elegant-color-dark marca-nucleos">{{ $nucleo->tipo }}</p>
@@ -26,7 +71,7 @@
 						<a class="btn btn-azul @if($nucleo->link==NULL) disabled @endif" @if($nucleo->link==NULL) disabled @else href="{{ $nucleo->link}}" @endif target="_blank">Ver más<i class="fal fa-external-link fa-lg ms-2"></i></a>
 					</div>
 				</div>
-				@endforeach
+				@endforeach -->
 			</div>
 		</div>
 	</div>
