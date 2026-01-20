@@ -9,7 +9,7 @@ use App\Http\Controllers\ResultadosController;
 use App\Http\Controllers\ContactoController;
 use App\Http\Controllers\NucleosController;
 use App\Http\Controllers\NewsController;
-
+use App\Http\Controllers\ProyectosFACSOController;
 use App\Models\InstitucionesPatrocinantes;
 
 use Illuminate\Support\Facades\Route;
@@ -81,6 +81,10 @@ Route::get('/redes', function () {
 Route::controller(NewsController::class)->group(function(){
 	Route::post('/newsletter/store', 'store')->name('news.store');
 	Route::post('/newsletter/addNews', 'addNews')->name('news.addNews');
+});
+
+Route::controller(ProyectosFACSOController::class)->group(function(){
+	Route::get('/proyectosfacso','index')->name('proyectosfacso');
 });
 
 Route::get('/news', function () {
