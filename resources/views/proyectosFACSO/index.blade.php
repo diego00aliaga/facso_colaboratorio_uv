@@ -33,20 +33,26 @@
 
         /* Grilla de Investigadores */
         .researcher-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* Centra los elementos, especialmente la fila de 2 */
+            gap: 2.5rem;
             margin-top: 3rem;
         }
 
         .researcher-card {
-            text-align: center;
-            padding: 1rem;
-            transition: transform 0.3s ease;
-        }
+    flex: 0 1 21%; 
+    min-width: 220px;
+    text-align: center;
+}
 
         .researcher-card:hover {
             transform: translateY(-5px);
+        }
+
+        .researcher-card:first-child:nth-last-child(5),
+        .researcher-card:first-child:nth-last-child(5) ~ .researcher-card {
+            flex: 0 1 28%;
         }
 
         .researcher-photo {
@@ -54,7 +60,7 @@
             height: 120px;
             border-radius: 50%;
             object-fit: cover;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             border: 3px solid #eee;
             background-color: #f8f9fa;
         }
@@ -78,7 +84,7 @@
         .dynamic-list {
             text-align: left;
             margin-top: 1.5rem;
-            columns: 2; /* Divide los objetivos en 2 columnas en 2025 */
+            columns: 1; /* Divide los objetivos en 2 columnas en 2025 */
         }
         .dynamic-list li {
             margin-bottom: 1rem;
@@ -103,10 +109,8 @@
                 El Fondo Concursable de Investigación de la Facultad de Ciencias Sociales de la Universidad de Valparaíso (FACSO) es un instrumento institucional orientado a fortalecer, diversificar y proyectar la investigación en ciencias sociales, en coherencia con el Plan de Desarrollo Estratégico de la Facultad y con el compromiso de la Universidad con la generación y transferencia de conocimiento socialmente relevante.
 Desde su creación, este fondo ha experimentado una evolución sostenida, ajustando sus objetivos, modalidades y criterios de evaluación de acuerdo con las necesidades de la comunidad académica y con los desafíos contemporáneos de la investigación en ciencias sociales.
             </div>
-        </div>
-    </div>
 
-    <div class="section lighten-4 py-5">
+            <div class="section lighten-4 py-5">
         <div class="container">
             
             <div class="year-nav-container">
@@ -120,7 +124,7 @@ Desde su creación, este fondo ha experimentado una evolución sostenida, ajusta
                     <div class="white z-depth-2 redcolab content-box-custom" id="content-card">
                         
                         <div class="text-center mb-5">
-                            <h3 class="bebas" id="content-title"></h3>
+                            <h4 class="bebas" id="content-title"></h4>
                             <p id="content-description" class="mx-auto" style="text-align: justify; text-align-last: left;"></p>
                         </div>
 
@@ -132,9 +136,7 @@ Desde su creación, este fondo ha experimentado una evolución sostenida, ajusta
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="container pb-5">
+        <div class="container pb-5">
         <div class="row justify-content-center">
             <div class="col-md-18 col-lg-16 col-xl-14 text-center">
                 <h4 class="bebas">Resultados</h4>
@@ -148,20 +150,27 @@ Desde su creación, este fondo ha experimentado una evolución sostenida, ajusta
 
             </div>
         </div>
+        </div>
+    </div>
+
+
+    </div>
+
+
+
+
     </div>
 
     <script>
         const timelineData = {
             2025: {
                 title: "Evolución hacia la investigación asociativa",
-                description: "Hito institucional orientado exclusivamente a fortalecer el trabajo colaborativo e interdisciplinario para generar conocimiento socialmente relevante.",
+                description: "La versión más reciente del Fondo Concursable FACSO marca un hito relevante en su trayectoria, al orientarse exclusivamente a proyectos de investigación asociativa. Este cambio responde a la experiencia acumulada en convocatorias anteriores y a la necesidad de:",
                 points: [
                     "Fortalecer el trabajo colaborativo e interdisciplinario.",
-                    "Consolidación de equipos de investigación estables.",
-                    "Potenciar la producción colectiva con proyección en redes académicas.",
-                    "Articulación de investigadores con distintas trayectorias.",
-                    "Sostenibilidad de líneas de investigación colectivas.",
-                    "Impacto académico y social alineado a desafíos actuales."
+                    "Promover la conformación y consolidación de equipos de investigación estables.",
+                    "Potenciar la producción colectiva de conocimiento, con proyección en redes académicas y espacios públicos de discusión.",
+                    "Articular investigadores/as con distintas trayectorias, favoreciendo el aprendizaje mutuo y la sostenibilidad de las líneas de investigación.",
                 ]
             },
             2024: {
