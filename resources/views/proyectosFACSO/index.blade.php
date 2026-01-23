@@ -56,8 +56,8 @@
         }
 
         .researcher-photo {
-            width: 120px;
-            height: 120px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
             object-fit: cover;
             margin-bottom: 1.5rem;
@@ -74,12 +74,16 @@
         }
 
         .project-short-title {
-            font-size: 0.85rem;
-            line-height: 1.3;
-            color: #666;
-            display: block;
-            font-style: italic;
-        }
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: #666;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Número de líneas visibles */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-height: 3.6em; /* Opcional: mantiene la altura aunque el título sea corto */
+}
 
         .dynamic-list {
             text-align: left;
@@ -119,7 +123,7 @@ Desde su creación, este fondo ha experimentado una evolución sostenida, ajusta
                 <span class="year-arrow" id="arrow-right" onclick="changeYear(1)">→</span>
             </div>
 
-            <div class="row justify-content-center">
+            <div class="row justify-content-center" href="https://uchile.cl/Equidad-Inclusion" >
                 <div class="col-lg-16">
                     <div class="white z-depth-2 redcolab content-box-custom" id="content-card">
                         
@@ -177,40 +181,40 @@ Desde su creación, este fondo ha experimentado una evolución sostenida, ajusta
                 title: "Diversificación de modalidades y apoyo a quienes se inician ",
                 description: "A partir de versiones posteriores, el Fondo Concursable incorporó modalidades diferenciadas, distinguiendo entre: Académicos/as con trayectoria en investigación. Académicos/as que se inician en investigación, incorporando en algunos casos la figura de mentoría. Este cambio permitió ampliar el acceso al financiamiento interno, fortalecer procesos formativos en investigación y favorecer la renovación de la comunidad académica investigadora, manteniendo estándares de calidad y exigencias claras en términos de productos comprometidos y rendición académica. Asimismo, se consolidaron mecanismos de seguimiento, exigencias de aprobación ética cuando correspondía y una mayor claridad en los plazos y obligaciones asociadas a la ejecución de los proyectos.",
                 researchers: [
-                    { name: "María Angélica Cruz", project: "TikTok como Escenario de Disputa del Género", img: "MariaAngelaCruz.jpg" },
-                    { name: "Luis Henríquez Riutor", project: "La batalla cultural de los Chicago Boys", img: "luis_henriquez.jpg" },
-                    { name: "Sofía Fernández Sanz", project: "Salud mental en estudiantes universitarios", img: "sofia_fernandez.jpg" }
+                    { name: "María Angélica Cruz", project: "TikTok como Escenario de Disputa del Género: Influencers Juveniles neoconservadores en Chile", img: "MariaAngelaCruz.jpg", url: "https://colaboratoriocienciassociales.uv.cl/investigadores-ficha-89" },
+                    { name: "Luis Henríquez Riutor", project: " La “batalla cultural” de los Chicago Boys: conformación, redes de pensamiento, ideas y programas entre 1953 y 1980. Las bases ideopolíticas e institucionalización del neoliberalismo chileno.", img: "luis_henriquez.jpg", url: "https://sociologia.uv.cl/escuela/academicos-as/77-luis-henriquez-ruitor" },
+                    { name: "Sofía Fernández Sanz", project: "Entendiendo los desafíos de salud mental entre los estudiantes universitarios en Chile ", img: "sofia_fernandez.jpg", url: "https://orcid.org/0000-0001-6625-5020" }
                 ]
             },
             2023: {
                 title: "Diversificación de modalidades y apoyo a quienes se inician",
-                description: "Ampliación del acceso al financiamiento interno y fortalecimiento de procesos formativos para académicos noveles.",
+                description: "A partir de versiones posteriores, el Fondo Concursable incorporó modalidades diferenciadas, distinguiendo entre: Académicos/as con trayectoria en investigación. Académicos/as que se inician en investigación, incorporando en algunos casos la figura de mentoría. Este cambio permitió ampliar el acceso al financiamiento interno, fortalecer procesos formativos en investigación y favorecer la renovación de la comunidad académica investigadora, manteniendo estándares de calidad y exigencias claras en términos de productos comprometidos y rendición académica. Asimismo, se consolidaron mecanismos de seguimiento, exigencias de aprobación ética cuando correspondía y una mayor claridad en los plazos y obligaciones asociadas a la ejecución de los proyectos.",
                 researchers: [
-                    { name: "Félix Aguirre", project: "Conversiones al socialismo en Inglaterra", img: "f_aguirre.jpg" },
-                    { name: "Fuad Hatibovic Díaz", project: "Identidad endogrupal y acción colectiva", img: "FuadHatibovic.jpg" },
-                    { name: "Raúl Hozven", project: "Trayectorias profesionales de Trabajo Social", img: "r_hozven.jpg" },
-                    { name: "Elena Salum", project: "Derecho a ser oído de NNA", img: "e_salum.jpg" },
-                    { name: "Carlos Varas", project: "Mindfulness en salud primaria", img: "c_varas.jpg" }
+                    { name: "Félix Aguirre", project: "Seis conversiones al socialismo en la Inglaterra de fin de siglo victoriano. Los Ensayos Fabianos de 1889", img: "f_aguirre.jpg", url: "https://orcid.org/0000-0002-9527-5757" },
+                    { name: "Fuad Hatibovic Díaz", project: "“Yo me movilizo por mi grupo”: Efectos de la identidad endogrupal en la acción colectiva mediados por emociones negativas y positivas", img: "FuadHatibovic.jpg", url: "https://colaboratoriocienciassociales.uv.cl/investigadores-ficha-77" },
+                    { name: "Raúl Hozven", project: "“Caracterización de trayectorias profesionales de Trabajo Social en escenarios transversales”", img: "r_hozven.jpg", url: "https://scholar.google.com/citations?user=qdsK3cAAAAAJ&hl=es" },
+                    { name: "Elena Salum", project: "Discurso, prácticas y estrategias de carácter interdisciplinar para garantizar la participación y el Derecho a Ser Oído de Niños, Niñas y Adolescentes representados por curaduría del Programa Mi Abogado Va. Región. Una mirada desde el Observatorio de Desigualdades y Políticas Públicas de la Escuela de Trabajo Social", img: "e_salum.jpg", url: "uv.cl" },
+                    { name: "Carlos Varas", project: "Evaluación de los efectos de un programa de Mindfulness en la prevención y promoción de salud mental de los y las funcionarios y funcionarias de establecimientos públicos de atención primaria de salud.", img: "c_varas.jpg" , url: "https://psicologia.uv.cl/nuestra-escuela/equipo-directivo?view=article&id=7:carlos-varas&catid=9"}
                 ]
             },
             2022: {
                 title: "Primeras versiones: fortalecimiento de trayectorias individuales.",
                 description: "Estas versiones sentaron las bases del fondo como un instrumento de apoyo directo a la investigación académica, con énfasis en la calidad metodológica, la viabilidad de los proyectos y la proyección de publicaciones.",
                 researchers: [
-                    { name: "Carlos Clavijo López", project: "Evaluación de progreso terapéutico (CAPSI)", img: "carlos_clavijo.jpg" },
-                    { name: "Claudia Calderón", project: "Reflexividad sobre las prácticas docentes", img: "c_calderon.jpg" },
-                    { name: "Marco Rodríguez", project: "Transferencia educativa: NY y Chile", img: "m_rodriguez.jpg" },
-                    { name: "Sara/Elena Salum", project: "Participación judicial de niños y niñas", img: "s_salum.jpg" }
+                    { name: "Carlos Clavijo López", project: "Aceptabilidad y efecto de implementación de medidas rutinarias de evaluación de progreso terapéutico en el Centro de Atención Psicológica de la Escuela de Psicología (CAPSI) de la Universidad de Valparaíso.", img: "carlos_clavijo.jpg", url: "https://psicologia.uv.cl/nuestra-escuela/equipo-directivo?view=article&id=32:carlos-clavijo&catid=9" },
+                    { name: "Claudia Calderón", project: "Reflexividad sobre las prácticas docentes. Estudio descriptivo de las transformaciones y desafíos del retorno a la docencia presencial", img: "c_calderon.jpg", url: "https://psicologia.uv.cl/nuestra-escuela/academicos-esc-psicologia?view=article&id=31:claudia-calderon&catid=9" },
+                    { name: "Marco Rodríguez", project: "Apre(he)nder de uno de los mejores sistemas educativos del mundo: transferencia educativa en el marco del primer viaje oficial de estudios a NY y su recepción en la modernización de la educación primaria en Chile (1904-1920).", img: "m_rodriguez.jpg" , url: "https://sociologia.uv.cl/escuela/academicos-as/22-marco-rodriguez"},
+                    { name: "Sara Salum", project: "La participación de niños y niñas en Tribunales de Familia de la Quinta Región: la voz de los niños y niñas a través de los mecanismos de participación judicial", img: "s_salum.jpg" , url: "https://orcid.org/0000-0001-9464-4998"}
                 ]
             },
             2021: {
                 title: "Primeras versiones: fortalecimiento de trayectorias individuales.",
-                description: "En sus primeras convocatorias, el Fondo Concursable FACSO estuvo orientado principalmente a apoyar proyectos individuales de investigación , con el propósito de: \n \n • Incentivar la producción científica en académicas y académicos de la Facultad. \n • Favorecer la continuidad</strong> de líneas de investigación en períodos sin financiamiento externo. \n • Promover la publicación de resultados</strong> en revistas indexadas y libros con referato externo.",
+                description: "En sus primeras convocatorias, el Fondo Concursable FACSO estuvo orientado principalmente a apoyar proyectos individuales de investigación, con el propósito de: \n \n • Incentivar la producción científica en académicas y académicos de la Facultad. \n • Favorecer la continuidad de líneas de investigación en períodos sin financiamiento externo. \n • Promover la publicación de resultados en revistas indexadas y libros con referato externo.",
                 researchers: [
-                    { name: "Elisabeth Simbürger", project: "La escritura de lo social en la academia", img: "ElisabethSimbuerger.jpg" },
-                    { name: "Pablo López Silva", project: "Psicosis y valor adaptativo de los delirios", img: "PabloLopez.jpg" },
-                    { name: "Patricia Castañeda", project: "Mascarillas e identidad en pandemia", img: "p_castaneda.jpg" },
-                    { name: "Andrea Flanagan", project: "Equidad en estudiantes de primera generación", img: "AndreaPatriciaFlanagan.jpg" }
+                    { name: "Elisabeth Simbürger", project: "La escritura de lo social en el mundo Académico", img: "ElisabethSimbuerger.jpg", url: "https://colaboratoriocienciassociales.uv.cl/investigadores-ficha-79"},
+                    { name: "Pablo López Silva", project: "Psicosis y valor adaptativo de los delirios", img: "PabloLopez.jpg", url: "https://colaboratoriocienciassociales.uv.cl/investigadores-ficha-78" },
+                    { name: "Patricia Castañeda", project: "Mascarillas, máscaras e identidades en Pandemia COVID 19", img: "p_castaneda.jpg", url: "https://orcid.org/0000-0002-4676-5872" },
+                    { name: "Andrea Flanagan", project: "Experiencias en educación superior de estudiantes de primera generación de la zona central de Chile: Desafíos para la equidad educativa en tiempos de pandemia COVID 19", img: "AndreaPatriciaFlanagan.jpg", url: "https://colaboratoriocienciassociales.uv.cl/investigadores-ficha-84" }
                 ]
             }
         };
@@ -263,12 +267,16 @@ Desde su creación, este fondo ha experimentado una evolución sostenida, ajusta
                 } else {
                     gridContainer.classList.remove('d-none');
                     data.researchers.forEach(r => {
-                        const rCard = document.createElement('div');
+                        const rCard = document.createElement('a');
                         rCard.className = 'researcher-card';
+                        rCard.href = r.url || '#'; // Usa el link de la data, o '#' si no tiene
+                        rCard.target = "_blank";   // Abre en pestaña nueva (opcional)
+                        rCard.style.textDecoration = 'none'; // Quita el subrayado por defecto de los links
+
                         rCard.innerHTML = `
                             <img src="{{ asset('assets/images/investigadores/') }}/${r.img}" 
-                                 onerror="this.src='https://ui-avatars.com/api/?name=${r.name}&background=003366&color=fff'" 
-                                 class="researcher-photo" alt="${r.name}">
+                                onerror="this.src='https://ui-avatars.com/api/?name=${r.name}&background=003366&color=fff'" 
+                                class="researcher-photo" alt="${r.name}">
                             <span class="researcher-name">${r.name}</span>
                             <span class="project-short-title">${r.project}</span>
                         `;

@@ -87,6 +87,10 @@ Route::controller(ProyectosFACSOController::class)->group(function(){
 	Route::get('/proyectosfacso','index')->name('proyectosfacso');
 });
 
+Route::get('/jornadas', function () {
+	return view('jornadas.index');
+	})->name('jornadas');
+
 Route::get('/news', function () {
 	return view('news.guardar');
 	})->name('news');

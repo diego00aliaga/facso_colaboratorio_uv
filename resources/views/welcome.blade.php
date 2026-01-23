@@ -70,7 +70,9 @@
 				</li>
 				<li class="nav-item"><a class="nav-link" href="{{ route('investigadores.index') }}">Investigadores/as</a></li>
 				<li class="nav-item"><a class="nav-link" href="{{ route('nucleos') }}">CENTROS DE INVESTIGACIÓN</a></li>
-				<li class="nav-item"><a class="nav-link" href="{{ route('redes') }}">Proyectos FACSO</a></li>
+				<li class="nav-item"><a class="nav-link" href="{{ route('proyectosfacso') }}">Proyectos FACSO</a></li>
+				<li class="nav-item"><a class="nav-link" href="{{ route('jornadas') }}">JORNADAS DE INVESTIGACIÓN</a></li>
+
 				<li class="nav-item"><a class="nav-link" href="{{ route('redes') }}">Redes Colab</a></li>
 				<li class="nav-item"><a class="nav-link" href="{{ route('contacto') }}">Contacto</a></li>
 			</ul>

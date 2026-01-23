@@ -74,7 +74,7 @@
 				<li class="nav-item"><a class="nav-link {{ request()->is('investigadores','investigadores-ficha-*') ? ' active' : '' }}" href="{{ route('investigadores.index') }}">Investigadoras/es</a></li>
 				<li class="nav-item"><a class="nav-link {{ request()->is('nucleos') ? ' active' : '' }}" href="{{ route('nucleos') }}">Centros de Investigación</a></li>
 				<li class="nav-item"><a class="nav-link {{ request()->is('proyectosfacso') ? ' active' : '' }}" href="{{ route('proyectosfacso') }}">Proyectos Facso</a></li>
-				<li class="nav-item"><a class="nav-link {{ request()->is('proyectosfacso') ? ' active' : '' }}" href="{{ route('proyectosfacso') }}">Jornadas de Investigación</a></li>
+				<li class="nav-item"><a class="nav-link {{ request()->is('jornadas') ? ' active' : '' }}" href="{{ route('jornadas') }}">Jornadas de Investigación</a></li>
 
 				<li class="nav-item"><a class="nav-link {{ request()->is('redes') ? ' active' : '' }}" href="{{ route('redes') }}">Redes Colab</a></li>
 				<li class="nav-item"><a class="nav-link {{ request()->is('contacto','contacto/send') ? ' active' : '' }}" href="{{ route('contacto') }}">Contacto</a></li>
