@@ -69,11 +69,25 @@
             min-width: 220px;
             text-align: center;
             cursor: pointer;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 1.5rem;
+            border-radius: 12px;
+            background-color: #fff;
+            height: 100%;
         }
 
         .researcher-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+        }
+
+        .researcher-card:hover .researcher-photo {
+            border-color: #f25e63;
+            box-shadow: 0 5px 15px rgba(242, 94, 99, 0.3);
+        }
+
+        .researcher-card:hover .click-indicator {
+            opacity: 1;
         }
 
         .researcher-card:first-child:nth-last-child(5),
@@ -89,6 +103,29 @@
             margin-bottom: 1.5rem;
             border: 3px solid #eee;
             background-color: #f8f9fa;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .click-indicator {
+            position: absolute;
+            top: 52%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #f25e63;
+            color: white;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            opacity: 0;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            padding: 5px 10px;
+        }
+
+        .click-indicator i {
+            margin-right: 5px;
+            margin-top: 2px;
         }
 
         .researcher-name {
@@ -129,112 +166,187 @@
         }
 
         /* ========================================
-           MODAL PERSONALIZADO
+           SECCIÓN DE DETALLES DEL PROYECTO
            ======================================== */
-        .modal-dialog {
+        .project-details-section {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            margin: 3rem 0;
+            
+        }
+
+        .project-details-section.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .project-details-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            padding: 3rem;
+            border-top: 6px solid #f25e63;
+            position: relative;
+        }
+
+        .project-header {
+            background: #fafafa;
+            border-left: 4px solid #f25e63;
+            padding: 1.5rem 2rem;
+            border-radius: 4px;
+            margin-bottom: 2rem;
+            position: relative;
             display: flex;
             align-items: center;
-            min-height: calc(100% - 1rem);
+            justify-content: space-between;
         }
 
-        @media (min-width: 576px) {
-            .modal-dialog {
-                min-height: calc(100% - 3.5rem);
-            }
+        .project-header-content {
+            flex: 1;
         }
 
-        .modal-content {
-            border-radius: 8px;
-            border: none;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        .project-header h3 {
+            font-family: 'Bebas', sans-serif;
+            font-size: 1.6rem;
+            margin: 0;
+            letter-spacing: 0.5px;
+            color: #333;
         }
 
-        .modal-header {
+        .project-year-badge {
+            display: inline-block;
             background: #f25e63;
             color: white;
-            border-radius: 8px 8px 0 0;
-            border-bottom: none;
+            padding: 0.25rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
         }
 
-        .modal-title {
-            font-size: 1.4rem;
-            margin: 0;
-        }
-
-        .modal-header .close {
-            color: white;
-            background-color: transparent;
-            opacity: 1;
-            text-shadow: none;
-            font-size: 2rem;
-            font-weight: 300;
-            padding: 0;
-            margin: 0;
-            width: 32px;
-            height: 32px;
+        .close-project-btn {
+            background: transparent;
+            border: 2px solid #ddd;
+            color: #666;
+            width: 36px;
+            height: 36px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1.3rem;
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .close-project-btn:hover {
+            background: #f5f5f5;
+            border-color: #999;
+            color: #333;
+            transform: scale(1.05);
+        }
+
+        .project-researcher-info {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .project-researcher-photo {
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
-            transition: all 0.3s ease;
+            object-fit: cover;
+            border: 4px solid #f25e63;
+            box-shadow: 0 5px 15px rgba(242, 94, 99, 0.3);
         }
 
-        .modal-header .close:hover {
-            transform: rotate(90deg);
-        }
-
-        .modal-body {
-            padding: 2rem;
-        }
-
-        .modal-body h6 {
-            font-weight: bold;
-            margin-top: 1.5rem;
-            margin-bottom: 0.75rem;
-            font-size: 1.1rem;
+        .project-researcher-name {
             font-family: 'Bebas', sans-serif;
-            letter-spacing: 0.5px;
+            font-size: 1.8rem;
+            color: #333;
+            margin: 0;
         }
 
-        .modal-body p {
+        .project-section-title {
+            font-weight: 700;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.15rem;
+            font-family: 'Bebas', sans-serif;
+            letter-spacing: 1px;
+            color: #333;
+            text-transform: uppercase;
+            border-left: 4px solid #f25e63;
+            padding-left: 1rem;
+        }
+
+        .project-section-title:first-of-type {
+            margin-top: 0;
+        }
+
+        .project-text {
+            color: #444;
+            line-height: 1.8;
+            font-size: 0.95rem;
+            font-weight: 400;
+            text-align: justify;
+        }
+
+        .project-title-text {
+            font-weight: 500;
+            font-size: 1.05rem;
+            color: #2c3e50;
+            line-height: 1.7;
+        }
+
+        .project-publications-list {
+            font-size: 0.92rem;
+            line-height: 1.7;
+            list-style-type: disc;
+            padding-left: 2rem;
+        }
+
+        .project-publications-list li {
+            margin-bottom: 0.8rem;
             color: #555;
-            line-height: 1.6;
+            font-weight: 400;
         }
 
-        .modal-footer {
-            border-top: 1px solid #e9ecef;
-            padding: 1rem 2rem;
-            background-color: #f8f9fa;
-            border-radius: 0 0 8px 8px;
+        .project-footer {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 2px solid #f0f0f0;
+            text-align: center;
         }
 
-        .modal-footer .btn {
+        .project-footer .btn {
             font-size: 1rem;
-            padding: 0.5rem 1.5rem;
-            border-radius: 4px;
+            padding: 0.7rem 2rem;
+            border-radius: 25px;
             transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
         }
 
-        .modal-footer .btn-primary {
-            background-color: #9e9e9e;
-            border-color: #9e9e9e;
+        .project-footer .btn-primary {
+            background-color: #f25e63;
+            border-color: #f25e63;
+            color: white;
         }
 
-        .modal-footer .btn-primary:hover {
-            background-color: #004488;
-            border-color: #004488;
+        .project-footer .btn-primary:hover {
+            background-color: #d94a4f;
+            border-color: #d94a4f;
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 51, 102, 0.3);
-        }
-
-        .modal-footer .btn-secondary {
-            background-color: #6c757d;
-            border-color: #6c757d;
-        }
-
-        .modal-footer .btn-secondary:hover {
-            background-color: #5a6268;
-            border-color: #545b62;
+            box-shadow: 0 4px 12px rgba(242, 94, 99, 0.4);
         }
 
         /* ========================================
@@ -315,6 +427,47 @@
     </div>
 
     <!-- ========================================
+         SECCIÓN DE DETALLES DEL PROYECTO
+         ======================================== -->
+    <div class="project-details-section" id="projectDetailsSection">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-14">
+                    <div class="project-details-container">
+                        <div class="project-header">
+                            <div class="project-header-content">
+                                <span class="project-year-badge" id="projectYear"></span>
+                                <h3 id="projectResearcherName"></h3>
+                            </div>
+                            <button class="close-project-btn" onclick="closeProjectDetails()">&times;</button>
+                        </div>
+
+                        <div class="project-researcher-info">
+                            <img id="projectPhoto" src="" class="project-researcher-photo" alt="Foto del investigador">
+                            <div>
+                                <h6 class="project-section-title" style="margin-top: 0; border-left: none; padding-left: 0;">Título del Proyecto:</h6>
+                                <p id="projectTitle" class="project-text project-title-text"></p>
+                            </div>
+                        </div>
+                        
+                        <h6 class="project-section-title">Objetivo:</h6>
+                        <p id="projectObjective" class="project-text"></p>
+                        
+                        <h6 class="project-section-title">Publicaciones:</h6>
+                        <ul id="projectPublications" class="project-publications-list"></ul>
+
+                        <div class="project-footer">
+                            <a id="projectProfileLink" href="#" target="_blank" class="btn btn-primary">
+                                <i class="fas fa-external-link-alt mr-2"></i> Ver Perfil del Investigador
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================
          SECCIÓN DE RESULTADOS
          ======================================== -->
     <div class="container pb-5">
@@ -329,48 +482,6 @@
                     <li class="mb-2"><strong>La consolidación de líneas de investigación.</strong></li>
                     <li class="mb-2"><strong>La proyección hacia fondos competitivos externos, particularmente FONDECYT Regular e Iniciación.</strong></li>
                 </ul>
-            </div>
-        </div>
-    </div>
-
-    <!-- ========================================
-         MODAL DE DETALLES DEL PROYECTO
-         ======================================== -->
-    <div class="modal fade" id="researcherModal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <!-- Header del Modal -->
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalTitle">Detalles del Proyecto</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar" onclick="$('#researcherModal').modal('hide');">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-
-                <!-- Cuerpo del Modal -->
-                <div class="modal-body">
-                    <div class="text-center mb-4">
-                        <img id="modalPhoto" src="" class="researcher-photo" style="width: 120px; height: 120px;" alt="Foto del investigador">
-                        <h4 id="modalResearcherName" class="researcher-name"></h4>
-                    </div>
-                    
-                    <h6>Título del Proyecto:</h6>
-                    <p id="modalProjectTitle" style="text-align: justify;"></p>
-                    
-                    <h6>Objetivo:</h6>
-                    <p id="modalObjective" style="text-align: justify;"></p>
-                    
-                    <h6>Publicaciones / Productos:</h6>
-                    <ul id="modalPublications" class="dynamic-list" style="font-size: 0.9rem;"></ul>
-                </div>
-
-                <!-- Footer del Modal -->
-                <div class="modal-footer">
-                    <a id="modalProfileLink" href="#" target="_blank" class="btn btn-primary btn-sm">
-                        <i class="fas fa-external-link-alt mr-1"></i> Perfil Investigador
-                    </a>
-
-                </div>
             </div>
         </div>
     </div>
@@ -538,14 +649,14 @@
         function openModal(year, index) {
             const data = timelineData[year].researchers[index];
             
-            document.getElementById('modalTitle').innerText = "Proyecto " + year;
-            document.getElementById('modalResearcherName').innerText = data.name;
-            document.getElementById('modalProjectTitle').innerText = data.project;
-            document.getElementById('modalPhoto').src = `{{ asset('assets/images/investigadores/') }}/${data.img}`;
-            document.getElementById('modalObjective').innerText = data.objective || "";
-            document.getElementById('modalProfileLink').href = data.url || "#";
+            document.getElementById('projectYear').innerText = "Proyecto " + year;
+            document.getElementById('projectResearcherName').innerText = data.name;
+            document.getElementById('projectTitle').innerText = data.project;
+            document.getElementById('projectPhoto').src = `{{ asset('assets/images/investigadores/') }}/${data.img}`;
+            document.getElementById('projectObjective').innerText = data.objective || "Sin objetivo especificado.";
+            document.getElementById('projectProfileLink').href = data.url || "#";
             
-            const pubList = document.getElementById('modalPublications');
+            const pubList = document.getElementById('projectPublications');
             pubList.innerHTML = '';
             if (data.publications && data.publications.length > 0 && data.publications[0] !== '') {
                 data.publications.forEach(pub => {
@@ -565,7 +676,7 @@
                                 link.target = '_blank';
                                 link.rel = 'noopener noreferrer';
                                 link.innerText = 'Ver publicación';
-                                link.style.color = '#003366';
+                                link.style.color = '#f25e63';
                                 link.style.fontWeight = 'bold';
                                 link.style.textDecoration = 'underline';
                                 li.appendChild(link);
@@ -583,7 +694,26 @@
                 pubList.innerHTML = '<li>Sin publicaciones registradas aún.</li>';
             }
 
-            $('#researcherModal').modal('show');
+            // Mostrar la sección
+            const section = document.getElementById('projectDetailsSection');
+            section.classList.add('active');
+            
+            // Hacer scroll suave hacia la sección con mejor posicionamiento
+            setTimeout(() => {
+                const yOffset = -80; // Offset para no quedar pegado arriba
+                const element = section;
+                const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                
+                window.scrollTo({ top: y, behavior: 'smooth' });
+            }, 150);
+        }
+
+        function closeProjectDetails() {
+            const section = document.getElementById('projectDetailsSection');
+            section.classList.remove('active');
+            
+            // Scroll de vuelta al grid de investigadores
+            document.getElementById('researcher-grid').scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
 
         // ========================================
@@ -591,6 +721,11 @@
         // ========================================
         function setYear(year) {
             currentYear = year;
+            
+            // Cerrar detalles del proyecto al cambiar de año
+            const section = document.getElementById('projectDetailsSection');
+            section.classList.remove('active');
+            
             updateContent();
             updateBubbles();
         }
@@ -643,6 +778,9 @@
                                 class="researcher-photo" alt="${r.name}">
                             <span class="researcher-name">${r.name}</span>
                             <span class="project-short-title">${r.project}</span>
+                            <div class="click-indicator">
+                                <i class="fas fa-info-circle"></i> Ver proyecto
+                            </div>
                         `;
                         gridContainer.appendChild(rCard);
                     });
@@ -655,8 +793,16 @@
         // INICIALIZACIÓN
         // ========================================
         window.onload = function() {
+            // Guardar la posición inicial del scroll
+            const initialScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+            
             updateContent();
             updateBubbles();
+            
+            // Restaurar la posición del scroll después de cargar el contenido
+            setTimeout(() => {
+                window.scrollTo(0, initialScrollPosition);
+            }, 50);
         };
     </script>
 @endsection
