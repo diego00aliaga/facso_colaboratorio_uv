@@ -21,83 +21,82 @@
 		<div class="container py-5">
 			<div class="row d-flex align-items-stretch justify-content-center">
 			<div class="col-lg-6 col-xl-4 mb-4">
-					<div class="white z-depth-1 text-center redcolab h-100">
-					<a href="https://centromemoriaddhh.uv.cl" style="color: inherit; " target="_blank">
+    <div class="white z-depth-1 text-center redcolab h-100 d-flex flex-column">
+        <a href="https://centromemoriaddhh.uv.cl" class="d-flex flex-column h-100" style="color: inherit;" target="_blank">
+            <img class="img-fluid d-block" src="{{ asset('assets/images/centrosUv/cpmd.jpg') }}" style="width: 100%; height: 300px;">
+            <h5 class="py-3 px-4 border-top grey lighten-2 m-0 mt-auto d-flex flex-column justify-content-center" style="min-height: 120px;">
+                <small>Centro de Estudios Interdisciplinarios sobre Cultura Política, Memoria y Derechos Humanos (CEI-CPMDH)</small>
+            </h5>   
+        </a>                
+    </div>
+</div>
 
-					<img class="img-fluid" src="{{ asset('assets/images/centrosUv/cpmd.jpg') }}" width="500" id="test7">
-					<h4 class=" py-3 px-4 border-top" style="">
-						<small>Centro de Estudios Interdisciplinarios sobre Cultura Política, Memoria y Derechos Humanos (CEI-CPMDH)</small>			
-					</h4>	
-					</a>				
-					</div>
-				</div>
-			<div class="col-lg-6 col-xl-4 mb-4">
-					<div class="white z-depth-1 text-center redcolab h-100">
-					<a href="https://cidcl.uv.cl/nosotros" style="color: inherit; " target="_blank">
+<div class="col-lg-6 col-xl-4 mb-4">
+    <div class="white z-depth-1 text-center redcolab h-100 d-flex flex-column">
+        <a href="https://cidcl.uv.cl/nosotros" class="d-flex flex-column h-100" style="color: inherit;" target="_blank">
+            <img class="img-fluid d-block" src="{{ asset('assets/images/centrosUv/centro-cidcl-700x438.jpg') }}" style="width: 100%; height: 300px;">
+            <h5 class="py-3 px-4 border-top grey lighten-2 m-0 mt-auto d-flex flex-column justify-content-center" style="min-height: 120px;">
+                <small>Centro de Investigación del Desarrollo en Cognición y Lenguaje (CIDCL)</small>
+            </h5>   
+        </a>                
+    </div>
+</div>
 
-					<img class="img-fluid" src="{{ asset('assets/images/centrosUv/centro-cidcl-700x438.jpg') }}" width="500" id="test7">
-					<h4 class=" py-3 px-4 border-top" style="">
-						<small>Centro de Investigación del Desarrollo en Cognición y Lenguaje (CIDCL)</small>			
-					</h4>	
-					</a>				
-					</div>
-				</div>
-				<div class="col-lg-6 col-xl-4 mb-4">
-					<div class="white z-depth-1  text-center redcolab h-100">
-					<a href="https://cinvit.uv.cl"  style="color: inherit; "target="_blank">
+<div class="col-lg-6 col-xl-4 mb-4">
+    <div class="white z-depth-1 text-center redcolab h-100 d-flex flex-column">
+        <a href="https://cinvit.uv.cl" class="d-flex flex-column h-100" style="color: inherit;" target="_blank">
+            <img class="img-fluid d-block" src="{{ asset('assets/images/centrosUv/centro-cinvit-700x438.jpg') }}" style="width: 100%; height: 300px;">
+            <h5 class="py-3 px-4 border-top grey lighten-2 m-0 mt-auto d-flex flex-column justify-content-center" style="min-height: 120px;">
+                <small>Centro de Investigación de Vulnerabilidades e Informalidades Territoriales (CINVIT)</small>
+            </h5>   
+        </a>                
+    </div>
+</div>
 
-					<img class="img-fluid" src="{{ asset('assets/images/centrosUv/centro-cinvit-700x438.jpg') }}" width="" id="test8">
-					<h4 class="py-3 px-4 border-top " style="">
-						<small>Centro de Investigación de Vulnerabilidades e Informalidades Territoriales (CINVIT)</small>
-					</h4>	
-					</a>				
-					</div>
-				</div>
+<div class="col-lg-6 col-xl-4 mb-4">
+    <div class="white z-depth-1 text-center redcolab h-100 d-flex flex-column">
+        <a href="https://cia.uv.cl/" class="d-flex flex-column h-100" style="color: inherit;" target="_blank">
+            <img class="img-fluid d-block" src="{{ asset('assets/images/centrosUv/ciauv-700x438.jpg') }}" style="width: 100%; height: 300px;">
+            <h5 class="py-3 px-4 border-top grey lighten-2 m-0 mt-auto d-flex flex-column justify-content-center" style="min-height: 120px;">
+                <small class="d-block">Centro de Investigaciones Artísticas</small>
+                <small class="d-block">(CIA-UV)</small>
+            </h5>
+        </a>                
+    </div>
+</div>
 
-				<div class="col-lg-6 col-xl-4 mb-4">
-					<div class="white z-depth-1  text-center redcolab h-100">
-					<a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://cia.uv.cl/&ved=2ahUKEwiytpiNv6KRAxVIrpUCHQCmPZ0QFnoECB4QAQ&usg=AOvVaw2Mn4z5IB3eC5ZyXloSOjVa"  style="color: inherit; "target="_blank">
+<div class="col-lg-6 col-xl-4 mb-4">
+    <div class="white z-depth-1 text-center redcolab h-100 d-flex flex-column">
+        <a href="https://ceitesys.uv.cl" class="d-flex flex-column h-100" style="color: inherit;" target="_blank">
+            <img class="img-fluid d-block" src="{{ asset('assets/images/centrosUv/logo-cei-tesys-700x438.png') }}" style="width: 100%; height: 300px;">
+            <h5 class="py-3 px-4 border-top grey lighten-2 m-0 mt-auto d-flex flex-column justify-content-center" style="min-height: 120px;">
+                <small>Centro de Estudios Interdisciplinarios en Teoría Social y Subjetividad (CEI-TESYS)</small>
+            </h5>   
+        </a>                                
+    </div>
+</div>
 
-					<img class="img-fluid" src="{{ asset('assets/images/centrosUv/ciauv-700x438.jpg') }}" width="" id="test8">
-					<h4 class="py-3 px-4 border-top" style="">
-						<small class="">Centro de Investigaciones Artísticas (CIA-UV)</small>
-					</h4>	
-					</a>				
-					</div>
-				</div>
-				<div class="col-lg-6 col-xl-4 mb-4">
-					<div class="white z-depth-1  text-center redcolab h-100">
-					<a href="https://ceitesys.uv.cl" style="color: inherit; " target="_blank">
+<div class="col-lg-6 col-xl-4 mb-4">
+    <div class="white z-depth-1 text-center redcolab h-100 d-flex flex-column">
+        <a href="https://ciesaluv.cl" class="d-flex flex-column h-100" style="color: inherit;" target="_blank">
+            <img class="img-fluid d-block" src="{{ asset('assets/images/centrosUv/ciesal.png') }}" style="width: 100%; height: 300px;">
+            <h5 class="py-3 px-4 border-top grey lighten-2 m-0 mt-auto d-flex flex-column justify-content-center" style="min-height: 120px;">
+                <small>Centro Interdisciplinario de Estudios en Salud (CIESAL)</small>
+            </h5>   
+        </a>                
+    </div>
+</div>
 
-					<img class="img-fluid" src="{{ asset('assets/images/centrosUv/logo-cei-tesys-700x438.png') }}" width="" id="test8">
-					<h4 class=" py-3 px-4 border-top" style="">
-						<small>Centro de Estudios Interdisciplinarios en Teoría Social y Subjetividad (CEI-TESYS)</small>
-					</h4>	
-					</a>								
-					</div>
-				</div>
-				<div class="col-lg-6 col-xl-4 mb-4">
-					<div class="white z-depth-1  text-center redcolab h-100">
-					<a href="https://ciesaluv.cl"  style="color: inherit; "target="_blank">
-
-					<img class="img-fluid" src="{{ asset('assets/images/centrosUv/ciesal.png') }}" width="" id="test8">
-					<h4 class="py-3 px-4 border-top" style="">
-						<small class="">Centro Interdisciplinario de Estudios en Salud (CIESAL)</small>
-					</h4>	
-					</a>				
-					</div>
-				</div>
-				<div class="col-lg-6 col-xl-4 mb-4">
-					<div class="white z-depth-1  text-center redcolab h-100">
-					<a href="https://c-estres.cl"  style="color: inherit; "target="_blank">
-
-					<img class="img-fluid" src="{{ asset('assets/images/centrosUv/c-estres.jpg') }}" width="" id="test8">
-					<h4 class="py-3 px-4 border-top" style="">
-						<small class="">Centro De Estudios Traslacionales En Estrés Y Suld Mental (C - ESTRES)	</small>
-					</h4>	
-					</a>				
-					</div>
-				</div>
+<div class="col-lg-6 col-xl-4 mb-4">
+    <div class="white z-depth-1 text-center redcolab h-100 d-flex flex-column">
+        <a href="https://c-estres.cl" class="d-flex flex-column h-100" style="color: inherit;" target="_blank">
+            <img class="img-fluid d-block" src="{{ asset('assets/images/centrosUv/c-estres.jpg') }}" style="width: 100%; height: 300px;">
+            <h5 class="py-3 px-4 border-top grey lighten-2 m-0 mt-auto d-flex flex-column justify-content-center" style="min-height: 100px;">
+                <small>Centro de Estudios Traslacionales en Estrés y Salud Mental (C - ESTRES)</small>
+            </h5>   
+        </a>                
+    </div>
+</div>
 				<!-- @foreach($nucleos as $nucleo)
 				<div class="col-md-6 col-xl-4 mb-5">
 					<div class="z-depth-1 grey lighten-2 p-3 ficha-nucleos">

@@ -2,49 +2,75 @@
 
 @section('contenido')
     <style>
+        /* ========================================
+           NAVEGACIÓN POR BURBUJAS (AÑOS)
+           ======================================== */
         .year-nav-container {
             display: flex;
             align-items: center;
             justify-content: center;
+            gap: 15px;
             margin-bottom: 3rem;
-        }
-        .year-arrow {
-            font-size: 1.5rem;
-            color:rgb(39, 37, 37);
-            cursor: pointer;
-            user-select: none;
-            transition: all 0.2s ease;
-        }
-        .year-arrow.hidden { opacity: 0; pointer-events: none; }
-        .year-arrow:hover { transform: scale(1.2); color: #d9534f; }
-        
-        .year-text {
-            font-size: 2rem;
-            margin: 10px;
+            flex-wrap: wrap;
         }
 
-        /* Contenedor Principal */
+        .year-bubble {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #f8f9fa;
+            color: #9e9e9e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.0rem;
+            transition: all 0.3s ease;
+            border: 2px solid #bdbdbd;
+            user-select: none;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .year-bubble:hover {
+            transform: translateY(-5px);
+            background-color: #e9ecef;
+        }
+
+        .year-bubble.active {
+            background-color: #f25e63;
+            color: white;
+            transform: scale(1.1);
+            box-shadow: 0 4px 15px rgba(0,51,102,0.3);
+        }
+
+        /* ========================================
+           CONTENEDOR PRINCIPAL
+           ======================================== */
         .content-box-custom {
             min-height: 600px;
             padding: 4rem !important;
-            border-top: 6px solid  #000000 !important;
+            border-top: 6px solid #000000 !important;
             transition: opacity 0.4s ease;
         }
 
-        /* Grilla de Investigadores */
+        /* ========================================
+           GRILLA DE INVESTIGADORES
+           ======================================== */
         .researcher-grid {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center; /* Centra los elementos, especialmente la fila de 2 */
+            justify-content: center;
             gap: 2.5rem;
             margin-top: 3rem;
         }
 
         .researcher-card {
-    flex: 0 1 21%; 
-    min-width: 220px;
-    text-align: center;
-}
+            flex: 0 1 21%;
+            min-width: 220px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
 
         .researcher-card:hover {
             transform: translateY(-5px);
@@ -68,104 +94,294 @@
         .researcher-name {
             font-family: 'Bebas', sans-serif;
             font-size: 1.2rem;
-            color: #003366;
             margin-bottom: 0.5rem;
             display: block;
         }
 
         .project-short-title {
-    font-size: 0.85rem;
-    line-height: 1.4;
-    color: #666;
-    display: -webkit-box;
-    -webkit-line-clamp: 3; /* Número de líneas visibles */
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    min-height: 3.6em; /* Opcional: mantiene la altura aunque el título sea corto */
-}
+            font-size: 0.85rem;
+            line-height: 1.4;
+            color: #666;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            min-height: 3.6em;
+        }
 
+        /* ========================================
+           LISTA DINÁMICA
+           ======================================== */
         .dynamic-list {
             text-align: left;
             margin-top: 1.5rem;
-            columns: 1; /* Divide los objetivos en 2 columnas en 2025 */
-        }
-        .dynamic-list li {
-            margin-bottom: 1rem;
-            font-size: 1rem;
-            color: #444;
-            list-style-type: disc; /* Cambia a 'none' si quieres quitar todo */
+            list-style-type: disc !important;
+            padding-left: 2rem;
+            columns: 1;
         }
 
+        .dynamic-list li {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            color: #444;
+            display: list-item !important;
+        }
+
+        /* ========================================
+           MODAL PERSONALIZADO
+           ======================================== */
+        .modal-dialog {
+            display: flex;
+            align-items: center;
+            min-height: calc(100% - 1rem);
+        }
+
+        @media (min-width: 576px) {
+            .modal-dialog {
+                min-height: calc(100% - 3.5rem);
+            }
+        }
+
+        .modal-content {
+            border-radius: 8px;
+            border: none;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal-header {
+            background: #f25e63;
+            color: white;
+            border-radius: 8px 8px 0 0;
+            border-bottom: none;
+        }
+
+        .modal-title {
+            font-size: 1.4rem;
+            margin: 0;
+        }
+
+        .modal-header .close {
+            color: white;
+            background-color: transparent;
+            opacity: 1;
+            text-shadow: none;
+            font-size: 2rem;
+            font-weight: 300;
+            padding: 0;
+            margin: 0;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .modal-header .close:hover {
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .modal-body h6 {
+            font-weight: bold;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+            font-family: 'Bebas', sans-serif;
+            letter-spacing: 0.5px;
+        }
+
+        .modal-body p {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .modal-footer {
+            border-top: 1px solid #e9ecef;
+            padding: 1rem 2rem;
+            background-color: #f8f9fa;
+            border-radius: 0 0 8px 8px;
+        }
+
+        .modal-footer .btn {
+            font-size: 1rem;
+            padding: 0.5rem 1.5rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .modal-footer .btn-primary {
+            background-color: #9e9e9e;
+            border-color: #9e9e9e;
+        }
+
+        .modal-footer .btn-primary:hover {
+            background-color: #004488;
+            border-color: #004488;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 51, 102, 0.3);
+        }
+
+        .modal-footer .btn-secondary {
+            background-color: #6c757d;
+            border-color: #6c757d;
+        }
+
+        .modal-footer .btn-secondary:hover {
+            background-color: #5a6268;
+            border-color: #545b62;
+        }
+
+        /* ========================================
+           RESPONSIVE
+           ======================================== */
         @media (max-width: 768px) {
-            .year-text { font-size: 3.5rem; margin: 0 20px; }
-            .content-box-custom { padding: 2rem !important; }
-            .dynamic-list { columns: 1; }
+            .year-bubble {
+                width: 60px;
+                height: 60px;
+                font-size: 1.2rem;
+            }
+            
+            .content-box-custom {
+                padding: 2rem !important;
+            }
+            
+            .dynamic-list {
+                columns: 1;
+            }
+
+            .modal-body {
+                padding: 1.5rem;
+            }
+
+            .modal-footer {
+                padding: 1rem;
+            }
         }
     </style>
 
+    <!-- ========================================
+         SECCIÓN DE INTRODUCCIÓN
+         ======================================== -->
     <div class="container pb-5">
         <div class="row justify-content-center">
             <div class="col-md-18 col-lg-16 col-xl-14 text-center">
-                <img class="img-fluid mb-5" src="{{ asset('assets/images/test7.png') }}" width="500">
+                <img class="img-fluid mb-5" src="{{ asset('assets/images/test7.png') }}" width="500" alt="Fondo Concursable">
                 <h4 class="bebas">Fondo Concursable de Investigación</h4>
-				<p style="text-align: justify; text-align-last: left;">
-                El Fondo Concursable de Investigación de la Facultad de Ciencias Sociales de la Universidad de Valparaíso (FACSO) es un instrumento institucional orientado a fortalecer, diversificar y proyectar la investigación en ciencias sociales, en coherencia con el Plan de Desarrollo Estratégico de la Facultad y con el compromiso de la Universidad con la generación y transferencia de conocimiento socialmente relevante.
-Desde su creación, este fondo ha experimentado una evolución sostenida, ajustando sus objetivos, modalidades y criterios de evaluación de acuerdo con las necesidades de la comunidad académica y con los desafíos contemporáneos de la investigación en ciencias sociales.
+                <p style="text-align: justify; text-align-last: left;">
+                    El Fondo Concursable de Investigación de la Facultad de Ciencias Sociales de la Universidad de Valparaíso (FACSO) es un instrumento institucional orientado a fortalecer, diversificar y proyectar la investigación en ciencias sociales, en coherencia con el Plan de Desarrollo Estratégico de la Facultad y con el compromiso de la Universidad con la generación y transferencia de conocimiento socialmente relevante.
+                    Desde su creación, este fondo ha experimentado una evolución sostenida, ajustando sus objetivos, modalidades y criterios de evaluación de acuerdo con las necesidades de la comunidad académica y con los desafíos contemporáneos de la investigación en ciencias sociales.
+                </p>
             </div>
+        </div>
+    </div>
 
-            <div class="section lighten-4 py-5">
+    <!-- ========================================
+         SECCIÓN DE TIMELINE INTERACTIVO
+         ======================================== -->
+    <div class="section lighten-4 py-5">
         <div class="container">
-            
+            <!-- Navegación por años -->
             <div class="year-nav-container">
-                <span class="year-arrow" id="arrow-left" onclick="changeYear(-1)">←</span>
-                <h1 class="bebas year-text" id="active-year">2025</h1>
-                <span class="year-arrow" id="arrow-right" onclick="changeYear(1)">→</span>
+                <div class="year-bubble" onclick="setYear(2021)" id="bubble-2021">2021</div>
+                <div class="year-bubble" onclick="setYear(2022)" id="bubble-2022">2022</div>
+                <div class="year-bubble" onclick="setYear(2023)" id="bubble-2023">2023</div>
+                <div class="year-bubble" onclick="setYear(2024)" id="bubble-2024">2024</div>
+                <div class="year-bubble" onclick="setYear(2025)" id="bubble-2025">2025</div>
             </div>
 
-            <div class="row justify-content-center" href="https://uchile.cl/Equidad-Inclusion" >
+            <h1 class="d-none" id="active-year">2025</h1>
+
+            <!-- Contenido dinámico -->
+            <div class="row justify-content-center">
                 <div class="col-lg-16">
                     <div class="white z-depth-2 redcolab content-box-custom" id="content-card">
-                        
                         <div class="text-center mb-5">
                             <h4 class="bebas" id="content-title"></h4>
                             <p id="content-description" class="mx-auto" style="text-align: justify; text-align-last: left;"></p>
                         </div>
 
                         <ul id="dynamic-list" class="dynamic-list d-none"></ul>
-
-                        <div id="researcher-grid" class="researcher-grid d-none">></div>
-
+                        <div id="researcher-grid" class="researcher-grid d-none"></div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="container pb-5">
+    </div>
+
+    <!-- ========================================
+         SECCIÓN DE RESULTADOS
+         ======================================== -->
+    <div class="container pb-5">
         <div class="row justify-content-center">
             <div class="col-md-18 col-lg-16 col-xl-14 text-center">
                 <h4 class="bebas">Resultados</h4>
-				<p style="text-align: justify; text-align-last: left;">
-                El análisis de las cuatro versiones del Fondo Concursable de Investigación FACSO (2021–2024) muestra que el instrumento ha cumplido un rol clave como plataforma de maduración de proyectos, permitiendo:
-                    <ul class="dynamic-list">
-                        <li class="mb-2"><strong>La generación de publicaciones científicas de alto nivel.</strong></li>
-                        <li class="mb-2"><strong>La consolidación de líneas de investigación.</strong></li>
-                        <li class="mb-2"><strong>La proyección hacia fondos competitivos externos, particularmente FONDECYT Regular e Iniciación.</strong></li>
-                    </ul>
-
+                <p style="text-align: justify; text-align-last: left;">
+                    El análisis de las cuatro versiones del Fondo Concursable de Investigación FACSO (2021–2024) muestra que el instrumento ha cumplido un rol clave como plataforma de maduración de proyectos, permitiendo:
+                </p>
+                <ul class="dynamic-list">
+                    <li class="mb-2"><strong>La generación de publicaciones científicas de alto nivel.</strong></li>
+                    <li class="mb-2"><strong>La consolidación de líneas de investigación.</strong></li>
+                    <li class="mb-2"><strong>La proyección hacia fondos competitivos externos, particularmente FONDECYT Regular e Iniciación.</strong></li>
+                </ul>
             </div>
         </div>
+    </div>
+
+    <!-- ========================================
+         MODAL DE DETALLES DEL PROYECTO
+         ======================================== -->
+    <div class="modal fade" id="researcherModal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <!-- Header del Modal -->
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitle">Detalles del Proyecto</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar" onclick="$('#researcherModal').modal('hide');">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <!-- Cuerpo del Modal -->
+                <div class="modal-body">
+                    <div class="text-center mb-4">
+                        <img id="modalPhoto" src="" class="researcher-photo" style="width: 120px; height: 120px;" alt="Foto del investigador">
+                        <h4 id="modalResearcherName" class="researcher-name"></h4>
+                    </div>
+                    
+                    <h6>Título del Proyecto:</h6>
+                    <p id="modalProjectTitle" style="text-align: justify;"></p>
+                    
+                    <h6>Objetivo:</h6>
+                    <p id="modalObjective" style="text-align: justify;"></p>
+                    
+                    <h6>Publicaciones / Productos:</h6>
+                    <ul id="modalPublications" class="dynamic-list" style="font-size: 0.9rem;"></ul>
+                </div>
+
+                <!-- Footer del Modal -->
+                <div class="modal-footer">
+                    <a id="modalProfileLink" href="#" target="_blank" class="btn btn-primary btn-sm">
+                        <i class="fas fa-external-link-alt mr-1"></i> Perfil Investigador
+                    </a>
+
+                </div>
+            </div>
         </div>
     </div>
 
-
-    </div>
-
-
-
-
-    </div>
-
+    <!-- ========================================
+         JAVASCRIPT
+         ======================================== -->
     <script>
+        // ========================================
+        // DATOS DEL TIMELINE
+        // ========================================
         const timelineData = {
             2025: {
                 title: "Evolución hacia la investigación asociativa",
@@ -181,30 +397,129 @@ Desde su creación, este fondo ha experimentado una evolución sostenida, ajusta
                 title: "Diversificación de modalidades y apoyo a quienes se inician ",
                 description: "A partir de versiones posteriores, el Fondo Concursable incorporó modalidades diferenciadas, distinguiendo entre: Académicos/as con trayectoria en investigación. Académicos/as que se inician en investigación, incorporando en algunos casos la figura de mentoría. Este cambio permitió ampliar el acceso al financiamiento interno, fortalecer procesos formativos en investigación y favorecer la renovación de la comunidad académica investigadora, manteniendo estándares de calidad y exigencias claras en términos de productos comprometidos y rendición académica. Asimismo, se consolidaron mecanismos de seguimiento, exigencias de aprobación ética cuando correspondía y una mayor claridad en los plazos y obligaciones asociadas a la ejecución de los proyectos.",
                 researchers: [
-                    { name: "María Angélica Cruz", project: "TikTok como Escenario de Disputa del Género: Influencers Juveniles neoconservadores en Chile", img: "MariaAngelaCruz.jpg", url: "https://colaboratoriocienciassociales.uv.cl/investigadores-ficha-89" },
-                    { name: "Luis Henríquez Riutor", project: " La “batalla cultural” de los Chicago Boys: conformación, redes de pensamiento, ideas y programas entre 1953 y 1980. Las bases ideopolíticas e institucionalización del neoliberalismo chileno.", img: "luis_henriquez.jpg", url: "https://sociologia.uv.cl/escuela/academicos-as/77-luis-henriquez-ruitor" },
-                    { name: "Sofía Fernández Sanz", project: "Entendiendo los desafíos de salud mental entre los estudiantes universitarios en Chile ", img: "sofia_fernandez.jpg", url: "https://orcid.org/0000-0001-6625-5020" }
+                    { name: "María Angélica Cruz", 
+                        project: "TikTok como Escenario de Disputa del Género: Influencers Juveniles neoconservadores en Chile", 
+                        img: "MariaAngelaCruz.jpg", 
+                        url: "https://colaboratoriocienciassociales.uv.cl/investigadores-ficha-89",
+                        objective: "",
+                        publications: [
+                            ""
+                        ]
+                    },
+                    { name: "Luis Henríquez Riutor", 
+                        project: " La “batalla cultural” de los Chicago Boys: conformación, redes de pensamiento, ideas y programas entre 1953 y 1980. Las bases ideopolíticas e institucionalización del neoliberalismo chileno.", 
+                        img: "luis_henriquez.jpg", 
+                        url: "https://sociologia.uv.cl/escuela/academicos-as/77-luis-henriquez-ruitor",
+                        objective: "",
+                        publications: [
+                            ""
+                        ]
+                    },
+                    { name: "Sofía Fernández Sanz", 
+                        project: "Entendiendo los desafíos de salud mental entre los estudiantes universitarios en Chile ", 
+                        img: "sofia_fernandez.jpg", 
+                        url: "https://orcid.org/0000-0001-6625-5020",
+                        objective: "",
+                        publications: [
+                            ""
+                        ]
+                    }
                 ]
             },
             2023: {
                 title: "Diversificación de modalidades y apoyo a quienes se inician",
                 description: "A partir de versiones posteriores, el Fondo Concursable incorporó modalidades diferenciadas, distinguiendo entre: Académicos/as con trayectoria en investigación. Académicos/as que se inician en investigación, incorporando en algunos casos la figura de mentoría. Este cambio permitió ampliar el acceso al financiamiento interno, fortalecer procesos formativos en investigación y favorecer la renovación de la comunidad académica investigadora, manteniendo estándares de calidad y exigencias claras en términos de productos comprometidos y rendición académica. Asimismo, se consolidaron mecanismos de seguimiento, exigencias de aprobación ética cuando correspondía y una mayor claridad en los plazos y obligaciones asociadas a la ejecución de los proyectos.",
                 researchers: [
-                    { name: "Félix Aguirre", project: "Seis conversiones al socialismo en la Inglaterra de fin de siglo victoriano. Los Ensayos Fabianos de 1889", img: "f_aguirre.jpg", url: "https://orcid.org/0000-0002-9527-5757" },
-                    { name: "Fuad Hatibovic Díaz", project: "“Yo me movilizo por mi grupo”: Efectos de la identidad endogrupal en la acción colectiva mediados por emociones negativas y positivas", img: "FuadHatibovic.jpg", url: "https://colaboratoriocienciassociales.uv.cl/investigadores-ficha-77" },
-                    { name: "Raúl Hozven", project: "“Caracterización de trayectorias profesionales de Trabajo Social en escenarios transversales”", img: "r_hozven.jpg", url: "https://scholar.google.com/citations?user=qdsK3cAAAAAJ&hl=es" },
-                    { name: "Elena Salum", project: "Discurso, prácticas y estrategias de carácter interdisciplinar para garantizar la participación y el Derecho a Ser Oído de Niños, Niñas y Adolescentes representados por curaduría del Programa Mi Abogado Va. Región. Una mirada desde el Observatorio de Desigualdades y Políticas Públicas de la Escuela de Trabajo Social", img: "e_salum.jpg", url: "uv.cl" },
-                    { name: "Carlos Varas", project: "Evaluación de los efectos de un programa de Mindfulness en la prevención y promoción de salud mental de los y las funcionarios y funcionarias de establecimientos públicos de atención primaria de salud.", img: "c_varas.jpg" , url: "https://psicologia.uv.cl/nuestra-escuela/equipo-directivo?view=article&id=7:carlos-varas&catid=9"}
+                    { name: "Félix Aguirre", 
+                        project: "Seis conversiones al socialismo en la Inglaterra de fin de siglo victoriano. Los Ensayos Fabianos de 1889", 
+                        img: "f_aguirre.jpg", 
+                        url: "https://orcid.org/0000-0002-9527-5757",
+                        objective: "",
+                        publications: [
+                            "Reyes, M. J., Cruz Contreras, M. A., Jeanneret Brith, F., Badilla, M., & Aguirre, F. (2024). De la “transmisión” a la “conexión” generacional de memorias en escenarios conflictivos. Psicoperspectivas, 23 (3). https://dx.doi.org/10.5027/psicoperspectivas-vol23-issue3-fulltext-3279"
+                        ]
+                     },
+                    { name: "Fuad Hatibovic Díaz", 
+                      project: "“Yo me movilizo por mi grupo”: Efectos de la identidad endogrupal en la acción colectiva mediados por emociones negativas y positivas", 
+                      img: "FuadHatibovic.jpg", 
+                      url: "https://colaboratoriocienciassociales.uv.cl/investigadores-ficha-77",
+                      objective: "Explicar la relación entre la identificación endogrupal con la acción colectiva mediada por las emociones positivas y negativas en estudiantes de universidades de la región de Valparaíso.",
+                      publications: ["Hatibovic, F., Gaete, J. M., Sandoval, J., Faúndez, X., Godoy, M. P., & Ilabaca, P. (2025). “What Do Believers Believe in? Beliefs, Emotions, and Willingness to Engage in Collective Action on Climate Change Among Residents of a Chilean Region Affected”. Sustainability, 17(15), 6694. https://doi.org/10.3390/su17156694",
+                      ]
+                    },
+                    { name: "Raúl Hozven", 
+                        project: "“Caracterización de trayectorias profesionales de Trabajo Social en escenarios transversales”", 
+                        img: "r_hozven.jpg", 
+                        url: "https://scholar.google.com/citations?user=qdsK3cAAAAAJ&hl=es",
+                        objective: "Caracterizar las trayectorias laborales de profesionales de Trabajo Social en escenarios laborales transversales.",
+                        publications: [
+                            "Hozven Valenzuela, R., Cazorla Becerra, K.V. y Castañeda Meneses, P.L. (2025). Reflexiones posthumanas en torno al objeto del Trabajo Social. Trabajo Social, 27(2), 95-115. https://doi.org/10.15446/ ",
+                            "Hozven Valenzuela, R. (s. f.). Trayectorias laborales de Trabajo Social en una nueva temporalidad: La construcción impredecible en trayectorias alternas y combinadas. En Ruta de la memoria a 100 años del Trabajo Social Latinoamericano: cartografiando cimientos y proyectando perspectivas. Editorial Aún creemos en los sueños – Le Monde Diplomatique & Escuela de Trabajo Social, Universidad Alberto Hurtado.",
+                            "Hozven Valenzuela, R. (en prensa). Trayectorias y encrucijadas entre el Trabajo Social y la inteligencia artificial. En 100 años de Trabajo Social en Chile y Latinoamérica. 80 años de trabajo social universitario en Valparaíso [Libro electrónico]. Escuela de Trabajo Social, Universidad de Valparaíso.",
+                            "Iturrieta Olivares, S., & Hozven Valenzuela, R. (en prensa). Habitar la investigación: Una apuesta ética, política y epistemológica desde el Trabajo Social. En 100 años de trabajo social en Chile: tejiendo saberes para transformar futuros [Libro electrónico]. Pontificia Universidad Católica de Valparaíso, Red de Investigadores en Trabajo Social en Chile & Ariadna Ediciones."
+                        ]                    
+                    },
+                    { name: "Elena Salum", 
+                        project: "Discurso, prácticas y estrategias de carácter interdisciplinar para garantizar la participación y el Derecho a Ser Oído de Niños, Niñas y Adolescentes representados por curaduría del Programa Mi Abogado Va. Región. Una mirada desde el Observatorio de Desigualdades y Políticas Públicas de la Escuela de Trabajo Social", 
+                        img: "e_salum.jpg", 
+                        url: "uv.cl",
+                        objective: "",
+                        publications: [
+                            ""
+                        ]                    
+                    },
+                    { name: "Carlos Varas", 
+                        project: "Evaluación de los efectos de un programa de Mindfulness en la prevención y promoción de salud mental de los y las funcionarios y funcionarias de establecimientos públicos de atención primaria de salud.", 
+                        img: "c_varas.jpg" , 
+                        url: "https://psicologia.uv.cl/nuestra-escuela/equipo-directivo?view=article&id=7:carlos-varas&catid=9",
+                        objective: "",
+                        publications: [
+                            ""
+                        ]                    
+                    }
                 ]
             },
             2022: {
                 title: "Primeras versiones: fortalecimiento de trayectorias individuales.",
                 description: "Estas versiones sentaron las bases del fondo como un instrumento de apoyo directo a la investigación académica, con énfasis en la calidad metodológica, la viabilidad de los proyectos y la proyección de publicaciones.",
                 researchers: [
-                    { name: "Carlos Clavijo López", project: "Aceptabilidad y efecto de implementación de medidas rutinarias de evaluación de progreso terapéutico en el Centro de Atención Psicológica de la Escuela de Psicología (CAPSI) de la Universidad de Valparaíso.", img: "carlos_clavijo.jpg", url: "https://psicologia.uv.cl/nuestra-escuela/equipo-directivo?view=article&id=32:carlos-clavijo&catid=9" },
-                    { name: "Claudia Calderón", project: "Reflexividad sobre las prácticas docentes. Estudio descriptivo de las transformaciones y desafíos del retorno a la docencia presencial", img: "c_calderon.jpg", url: "https://psicologia.uv.cl/nuestra-escuela/academicos-esc-psicologia?view=article&id=31:claudia-calderon&catid=9" },
-                    { name: "Marco Rodríguez", project: "Apre(he)nder de uno de los mejores sistemas educativos del mundo: transferencia educativa en el marco del primer viaje oficial de estudios a NY y su recepción en la modernización de la educación primaria en Chile (1904-1920).", img: "m_rodriguez.jpg" , url: "https://sociologia.uv.cl/escuela/academicos-as/22-marco-rodriguez"},
-                    { name: "Sara Salum", project: "La participación de niños y niñas en Tribunales de Familia de la Quinta Región: la voz de los niños y niñas a través de los mecanismos de participación judicial", img: "s_salum.jpg" , url: "https://orcid.org/0000-0001-9464-4998"}
+                    { 
+                        name: "Carlos Clavijo López", 
+                        project: "Aceptabilidad y efecto de implementación de medidas rutinarias de evaluación de progreso terapéutico en el Centro de Atención Psicológica de la Escuela de Psicología (CAPSI) de la Universidad de Valparaíso.", 
+                        img: "carlos_clavijo.jpg", 
+                        url: "https://psicologia.uv.cl/nuestra-escuela/equipo-directivo?view=article&id=32:carlos-clavijo&catid=9",
+                        objective: "",
+                        publications: [
+                            ""
+                        ]                    
+                    },
+                    { name: "Claudia Calderón", 
+                        project: "Reflexividad sobre las prácticas docentes. Estudio descriptivo de las transformaciones y desafíos del retorno a la docencia presencial", 
+                        img: "c_calderon.jpg", 
+                        url: "https://psicologia.uv.cl/nuestra-escuela/academicos-esc-psicologia?view=article&id=31:claudia-calderon&catid=9",
+                        objective: "",
+                        publications: [
+                            ""
+                        ]                    
+                    },
+                    { name: "Marco Rodríguez", 
+                        project: "Apre(he)nder de uno de los mejores sistemas educativos del mundo: transferencia educativa en el marco del primer viaje oficial de estudios a NY y su recepción en la modernización de la educación primaria en Chile (1904-1920).", 
+                        img: "m_rodriguez.jpg" , 
+                        url: "https://sociologia.uv.cl/escuela/academicos-as/22-marco-rodriguez",
+                        objective: "",
+                        publications: [
+                            ""
+                        ]
+                    },
+                    { name: "Sara Salum", 
+                        project: "La participación de niños y niñas en Tribunales de Familia de la Quinta Región: la voz de los niños y niñas a través de los mecanismos de participación judicial", 
+                        img: "s_salum.jpg" , 
+                        url: "https://orcid.org/0000-0001-9464-4998",
+                        objective: "",
+                        publications: [
+                            ""
+                        ]                    
+                    }
                 ]
             },
             2021: {
@@ -218,26 +533,79 @@ Desde su creación, este fondo ha experimentado una evolución sostenida, ajusta
                 ]
             }
         };
-
         let currentYear = 2025;
-        const years = [2025, 2024, 2023, 2022, 2021];
 
-        function changeYear(direction) {
-            let currentIndex = years.indexOf(currentYear);
-            let nextIndex = currentIndex - direction;
-            if (nextIndex >= 0 && nextIndex < years.length) {
-                currentYear = years[nextIndex];
-                updateContent();
-                updateArrows();
+        function openModal(year, index) {
+            const data = timelineData[year].researchers[index];
+            
+            document.getElementById('modalTitle').innerText = "Proyecto " + year;
+            document.getElementById('modalResearcherName').innerText = data.name;
+            document.getElementById('modalProjectTitle').innerText = data.project;
+            document.getElementById('modalPhoto').src = `{{ asset('assets/images/investigadores/') }}/${data.img}`;
+            document.getElementById('modalObjective').innerText = data.objective || "";
+            document.getElementById('modalProfileLink').href = data.url || "#";
+            
+            const pubList = document.getElementById('modalPublications');
+            pubList.innerHTML = '';
+            if (data.publications && data.publications.length > 0 && data.publications[0] !== '') {
+                data.publications.forEach(pub => {
+                    const li = document.createElement('li');
+                    
+                    // Buscar URLs en el texto de la publicación
+                    const urlRegex = /(https?:\/\/[^\s]+)/g;
+                    const urls = pub.match(urlRegex);
+                    
+                    if (urls && urls.length > 0) {
+                        // Si hay URL, dividir el texto y crear enlace
+                        const parts = pub.split(urlRegex);
+                        parts.forEach((part, index) => {
+                            if (part.match(urlRegex)) {
+                                const link = document.createElement('a');
+                                link.href = part;
+                                link.target = '_blank';
+                                link.rel = 'noopener noreferrer';
+                                link.innerText = 'Ver publicación';
+                                link.style.color = '#003366';
+                                link.style.fontWeight = 'bold';
+                                link.style.textDecoration = 'underline';
+                                li.appendChild(link);
+                            } else if (part.trim()) {
+                                li.appendChild(document.createTextNode(part + ' '));
+                            }
+                        });
+                    } else {
+                        li.innerText = pub;
+                    }
+                    
+                    pubList.appendChild(li);
+                });
+            } else {
+                pubList.innerHTML = '<li>Sin publicaciones registradas aún.</li>';
             }
+
+            $('#researcherModal').modal('show');
         }
 
-        function updateArrows() {
-            const currentIndex = years.indexOf(currentYear);
-            document.getElementById('arrow-left').classList.toggle('hidden', currentIndex === years.length - 1);
-            document.getElementById('arrow-right').classList.toggle('hidden', currentIndex === 0);
+        // ========================================
+        // FUNCIÓN: CAMBIAR AÑO
+        // ========================================
+        function setYear(year) {
+            currentYear = year;
+            updateContent();
+            updateBubbles();
         }
 
+        // ========================================
+        // FUNCIÓN: ACTUALIZAR BURBUJAS
+        // ========================================
+        function updateBubbles() {
+            document.querySelectorAll('.year-bubble').forEach(b => b.classList.remove('active'));
+            document.getElementById(`bubble-${currentYear}`).classList.add('active');
+        }
+
+        // ========================================
+        // FUNCIÓN: ACTUALIZAR CONTENIDO
+        // ========================================
         function updateContent() {
             const card = document.getElementById('content-card');
             const data = timelineData[currentYear];
@@ -247,11 +615,9 @@ Desde su creación, este fondo ha experimentado una evolución sostenida, ajusta
             card.style.opacity = '0';
             
             setTimeout(() => {
-                document.getElementById('active-year').innerText = currentYear;
                 document.getElementById('content-title').innerText = data.title;
                 document.getElementById('content-description').innerText = data.description;
 
-                // Resetear vistas
                 listContainer.classList.add('d-none');
                 gridContainer.classList.add('d-none');
                 listContainer.innerHTML = '';
@@ -261,17 +627,15 @@ Desde su creación, este fondo ha experimentado una evolución sostenida, ajusta
                     listContainer.classList.remove('d-none');
                     data.points.forEach(p => {
                         const li = document.createElement('li');
-                        li.innerHTML = `<i class="fas fas-check.circle mr-2" style="color:#003366"></i> ${p}`;
+                        li.innerText = p; 
                         listContainer.appendChild(li);
                     });
-                } else {
+                } else if (data.researchers) {
                     gridContainer.classList.remove('d-none');
-                    data.researchers.forEach(r => {
-                        const rCard = document.createElement('a');
+                    data.researchers.forEach((r, index) => {
+                        const rCard = document.createElement('div');
                         rCard.className = 'researcher-card';
-                        rCard.href = r.url || '#'; // Usa el link de la data, o '#' si no tiene
-                        rCard.target = "_blank";   // Abre en pestaña nueva (opcional)
-                        rCard.style.textDecoration = 'none'; // Quita el subrayado por defecto de los links
+                        rCard.onclick = () => openModal(currentYear, index);
 
                         rCard.innerHTML = `
                             <img src="{{ asset('assets/images/investigadores/') }}/${r.img}" 
@@ -287,9 +651,12 @@ Desde su creación, este fondo ha experimentado una evolución sostenida, ajusta
             }, 300);
         }
 
+        // ========================================
+        // INICIALIZACIÓN
+        // ========================================
         window.onload = function() {
             updateContent();
-            updateArrows();
+            updateBubbles();
         };
     </script>
 @endsection
