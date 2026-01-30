@@ -15,6 +15,86 @@
         gap: 4rem;
         flex-wrap: wrap; /* Para móviles */
     }
+    
+    /* Carrusel de fotos */
+    .jornada-carousel {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        border-radius: 8px;
+    }
+    
+    .jornada-carousel img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        opacity: 0;
+        transition: opacity 0.6s ease-in-out;
+    }
+    
+    .jornada-carousel img.active {
+        opacity: 1;
+    }
+    
+    .carousel-controls {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 10px;
+        z-index: 10;
+    }
+    
+    .carousel-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.5);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: 2px solid white;
+    }
+    
+    .carousel-dot.active {
+        background: white;
+        transform: scale(1.2);
+    }
+    
+    .carousel-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255,255,255,0.8);
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 1.2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        z-index: 10;
+    }
+    
+    .carousel-arrow:hover {
+        background: white;
+        transform: translateY(-50%) scale(1.1);
+    }
+    
+    .carousel-arrow.left {
+        left: 15px;
+    }
+    
+    .carousel-arrow.right {
+        right: 15px;
+    }
 
     /* Invierte el orden en las filas pares (2, 4, 6...) */
     .jornada-row:nth-child(even) {
@@ -24,12 +104,11 @@
     /* Contenedor del Afiche/Flyer */
     .jornada-img-container {
         flex: 1.5;
-        min-width: 500px;
-        max-width: 450px;
-        height: 500px;
+        min-width: 550px;
+        max-width: 500px ;
+        height: 600px;
         display: flex;
         justify-content: center;
-        
     }
 
     .jornada-flyer {
@@ -121,7 +200,11 @@
         
         <div class="jornada-row">
             <div class="jornada-img-container">
-                <img src="{{ asset('assets/images/jornadas/flyer_1.jpg') }}" class="jornada-flyer" alt="Jornada 1">
+                <div class="jornada-carousel" id="carousel-1">
+                    <!-- <button class="carousel-arrow left" onclick="changeSlide(1, -1)">‹</button>
+                    <button class="carousel-arrow right" onclick="changeSlide(1, 1)">›</button> -->
+                    <div class="carousel-controls" id="dots-1"></div>
+                </div>
             </div>
             <div class="jornada-text-container">
                 <span class="jornada-tag">Jornada I</span>
@@ -134,7 +217,11 @@
 
         <div class="jornada-row">
             <div class="jornada-img-container">
-                <img src="{{ asset('assets/images/jornadas/flyer_2.jpg') }}" class="jornada-flyer" alt="Jornada 2">
+                <div class="jornada-carousel" id="carousel-2">
+                    <!-- <button class="carousel-arrow left" onclick="changeSlide(2, -1)">‹</button>
+                    <button class="carousel-arrow right" onclick="changeSlide(2, 1)">›</button> -->
+                    <div class="carousel-controls mb-3" id="dots-2"></div>
+                </div>
             </div>
             <div class="jornada-text-container">
                 <span class="jornada-tag">Jornada II</span>
@@ -149,7 +236,11 @@
 
         <div class="jornada-row">
             <div class="jornada-img-container">
-                <img src="{{ asset('assets/images/jornadas/flyer_3.jpg') }}" class="jornada-flyer" alt="Jornada 3">
+                <div class="jornada-carousel" id="carousel-3">
+                    <!-- <button class="carousel-arrow left" onclick="changeSlide(3, -1)">‹</button>
+                    <button class="carousel-arrow right" onclick="changeSlide(3, 1)">›</button> -->
+                    <div class="carousel-controls" id="dots-3"></div>
+                </div>
             </div>
             <div class="jornada-text-container">
                 <span class="jornada-tag">Jornada III</span>
@@ -163,4 +254,112 @@
 
     </div>
 </div>
+
+<script>
+    // Arrays de fotos para cada jornada
+    const jornadasPhotos = {
+        1: [
+            "{{ asset('assets/images/jornadas/flyer_jornada1.png') }}",
+            "{{ asset('assets/images/jornadas/flyer_jornada1_2.png') }}",
+            "{{ asset('assets/images/jornadas/flyer_jornada1_3.png') }}",
+            "{{ asset('assets/images/jornadas/flyer_jornada1_4.png') }}",
+            "{{ asset('assets/images/jornadas/flyer_jornada1_5.png') }}",
+            "{{ asset('assets/images/jornadas/flyer_jornada1_6.png') }}",
+            "{{ asset('assets/images/jornadas/flyer_jornada1_7.png') }}",
+        ],
+        2: [
+            "{{ asset('assets/images/jornadas/flyer_1.jpg') }}",
+            "{{ asset('assets/images/jornadas/flyer_2.jpg') }}",
+
+        ],
+        3: [
+            "{{ asset('assets/images/jornadas/flyer_3.jpg') }}",
+            "{{ asset('assets/images/jornadas/flyer_jornada3_2.png') }}",
+
+        ]
+    };
+    
+    let currentSlides = {
+        1: 0,
+        2: 0,
+        3: 0
+    };
+    
+    // Inicializar carruseles
+    function initCarousels() {
+        Object.keys(jornadasPhotos).forEach(jornadaId => {
+            const carousel = document.getElementById(`carousel-${jornadaId}`);
+            const dotsContainer = document.getElementById(`dots-${jornadaId}`);
+            const photos = jornadasPhotos[jornadaId];
+            
+            // Obtener referencia a los botones antes de agregar imágenes
+            const leftArrow = carousel.querySelector('.carousel-arrow.left');
+            const rightArrow = carousel.querySelector('.carousel-arrow.right');
+            const controls = carousel.querySelector('.carousel-controls');
+            
+            // Crear imágenes (agregándolas en orden correcto al final)
+            photos.forEach((photo, index) => {
+                const img = document.createElement('img');
+                img.src = photo;
+                img.alt = `Jornada ${jornadaId} - Foto ${index + 1}`;
+                if (index === 0) img.classList.add('active');
+                // Insertar antes de los controles
+                carousel.insertBefore(img, leftArrow);
+                
+                // Crear dots
+                const dot = document.createElement('span');
+                dot.classList.add('carousel-dot');
+                if (index === 0) dot.classList.add('active');
+                dot.onclick = () => goToSlide(jornadaId, index);
+                dotsContainer.appendChild(dot);
+            });
+        });
+        
+        // Auto-avanzar cada 5 segundos
+        setInterval(() => {
+            Object.keys(jornadasPhotos).forEach(jornadaId => {
+                changeSlide(jornadaId, 1);
+            });
+        }, 5000);
+    }
+    
+    function changeSlide(jornadaId, direction) {
+        const photos = jornadasPhotos[jornadaId];
+        const carousel = document.getElementById(`carousel-${jornadaId}`);
+        const images = carousel.querySelectorAll('img');
+        const dots = document.getElementById(`dots-${jornadaId}`).querySelectorAll('.carousel-dot');
+        
+        // Quitar active de la imagen actual
+        images[currentSlides[jornadaId]].classList.remove('active');
+        dots[currentSlides[jornadaId]].classList.remove('active');
+        
+        // Calcular nuevo índice
+        currentSlides[jornadaId] = (currentSlides[jornadaId] + direction + photos.length) % photos.length;
+        
+        // Agregar active a la nueva imagen
+        images[currentSlides[jornadaId]].classList.add('active');
+        dots[currentSlides[jornadaId]].classList.add('active');
+    }
+    
+    function goToSlide(jornadaId, index) {
+        const carousel = document.getElementById(`carousel-${jornadaId}`);
+        const images = carousel.querySelectorAll('img');
+        const dots = document.getElementById(`dots-${jornadaId}`).querySelectorAll('.carousel-dot');
+        
+        // Quitar active de la imagen actual
+        images[currentSlides[jornadaId]].classList.remove('active');
+        dots[currentSlides[jornadaId]].classList.remove('active');
+        
+        // Establecer nuevo índice
+        currentSlides[jornadaId] = index;
+        
+        // Agregar active a la nueva imagen
+        images[currentSlides[jornadaId]].classList.add('active');
+        dots[currentSlides[jornadaId]].classList.add('active');
+    }
+    
+    // Inicializar cuando cargue la página
+    window.addEventListener('load', initCarousels);
+</script>
+
 @endsection

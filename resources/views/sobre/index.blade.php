@@ -57,8 +57,8 @@
 					<p class="mb-0 pb-2 text-start border-bottom">Coordinadora de Vinculación con el Medio</p>
 				</div>
 				<div class="col-sm-6 col-md-4 col-xl-3 pb-5">
-					<img class="img-fluid z-depth-1 mb-2" src="{{ asset('assets/images/uv/equipo_academico/jose_manuel_gaete.jpg') }}" alt="José Manuel Gaete Fiscella">
-					<p class="mb-0 text-start b600">José Manuel Gaete Fiscella</p>
+					<img class="img-fluid z-depth-1 mb-2" src="{{ asset('assets/images/uv/equipo_academico/f_sotomayor.png') }}" alt="Francisco Sotomayor Lopez">
+					<p class="mb-0 text-start b600">Francisco Sotomayor Lopez</p>
 					<p class="mb-0 pb-2 text-start border-bottom">Coordinador de postgrado y postítulo</p>
 				</div>
 
@@ -155,8 +155,25 @@
 						</a>
 					</div>
 				</div>
-				<div class="col-lg-6 col-xl-4 pb-4">
+				<!-- <div class="col-lg-6 col-xl-4 pb-4">
 					<p class="b800 text-uppercase">Fotografías</p>
+					<div class="d-grid gap-2">
+						<a class="btn btn-outline-dark" role="button" data-bs-toggle="collapse" data-bs-target="#gal-biblio" aria-expanded="false" aria-controls="gal-biblio" id="btnBiblio">
+							<span class="d-block" data-bs-toggle="tooltip" data-bs-placement="top" title="09 abril 2024 en FACSO (auditorio Julieta Kirkwood).">10° Congreso de Bibliotecas Universitarias y Especializadas de la Universidad de Chile<i class="far fa-images fa-lg ms-2"></i></span>
+						</a>
+						<script type="text/javascript">
+							document.getElementById("btnBiblio").addEventListener("click", function() {
+								var target = document.getElementById("gal-biblio");
+								window.scrollTo({
+									top: target.offsetTop,
+									behavior: "smooth"
+								});
+							});
+						</script>
+					</div>
+				</div> -->
+				<div class="col-lg-6 col-xl-4 pb-4">
+					<p class="b800 text-uppercase">Noticias</p>
 					<div class="d-grid gap-2">
 						<a class="btn btn-outline-dark" role="button" data-bs-toggle="collapse" data-bs-target="#gal-biblio" aria-expanded="false" aria-controls="gal-biblio" id="btnBiblio">
 							<span class="d-block" data-bs-toggle="tooltip" data-bs-placement="top" title="09 abril 2024 en FACSO (auditorio Julieta Kirkwood).">10° Congreso de Bibliotecas Universitarias y Especializadas de la Universidad de Chile<i class="far fa-images fa-lg ms-2"></i></span>
@@ -173,7 +190,7 @@
 					</div>
 				</div>
 				<div class="col-lg-6 col-xl-4 pb-4">
-					<p class="b800 text-uppercase">Prensa</p>
+					<p class="b800 text-uppercase">Sitios Web</p>
 					<div class="d-grid gap-2">
 						<a class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#modalVideo" data-videonumber="hwooz-ofZnI">
 							<span class="d-block" data-bs-toggle="tooltip" data-bs-placement="top" title="17 julio 2024">Cooperativa Ciencia<i class="fas fa-play-circle fa-lg ms-2"></i></span>
@@ -189,6 +206,23 @@
 						</a>
 					</div>
 				</div>
+				<!-- <div class="col-lg-6 col-xl-4 pb-4">
+					<p class="b800 text-uppercase">Prensa</p>
+					<div class="d-grid gap-2">
+						<a class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#modalVideo" data-videonumber="hwooz-ofZnI">
+							<span class="d-block" data-bs-toggle="tooltip" data-bs-placement="top" title="17 julio 2024">Cooperativa Ciencia<i class="fas fa-play-circle fa-lg ms-2"></i></span>
+						</a>
+						<a class="btn btn-outline-dark" href="https://uchile.cl/noticias/218295/u-de-chile-lanza-co-laboratorio-de-investigacion-en-ciencias-sociales" target="_blank">
+							<span class="d-block" data-bs-toggle="tooltip" data-bs-placement="top" title="11 julio 2024">Noticias UChile<i class="far fa-link fa-lg ms-2"></i></span>
+						</a>
+						<a class="btn btn-outline-dark" href="https://radio.uchile.cl/2024/07/11/ciencias-sociales-para-chile-facso-lanza-novedoso-co-laboratorio-en-investigacion/" target="_blank">
+							<span class="d-block" data-bs-toggle="tooltip" data-bs-placement="top" title="11 julio 2024">Diario UChile<i class="far fa-link fa-lg ms-2"></i></span>
+						</a>
+						<a class="btn btn-outline-dark" href="https://www.elciudadano.com/chile/universidad-de-chile-lanza-innovador-colaboratorio-digital-de-investigacion/07/08/" target="_blank">
+							<span class="d-block" data-bs-toggle="tooltip" data-bs-placement="top" title="07 julio 2024">El Ciudadano<i class="far fa-link fa-lg ms-2"></i></span>
+						</a>
+					</div>
+				</div> -->
 			</div>
 			<div class="row pt-4 justify-content-center collapse" id="gal-biblio" data-bs-parent="#accordion-registros">
 				<div class="col-lg-4 pb-4">
