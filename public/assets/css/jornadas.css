@@ -1,0 +1,183 @@
+    .jornadas-container {
+        padding: 2rem 0;
+    }
+
+    /* Fila principal de cada jornada */
+    .jornada-row {
+        display: flex;
+        align-items: center;
+        margin-bottom: 5rem;
+        gap: 4rem;
+        flex-wrap: wrap; /* Para móviles */
+    }
+    
+    /* Carrusel de fotos */
+    .jornada-carousel {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        border-radius: 8px;
+    }
+    
+    .jornada-carousel img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        opacity: 0;
+        transition: opacity 0.6s ease-in-out;
+    }
+    
+    .jornada-carousel img.active {
+        opacity: 1;
+    }
+    
+    .carousel-controls {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 10px;
+        z-index: 10;
+    }
+    
+    .carousel-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.5);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: 2px solid white;
+    }
+    
+    .carousel-dot.active {
+        background: white;
+        transform: scale(1.2);
+    }
+    
+    .carousel-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255,255,255,0.8);
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 1.2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        z-index: 10;
+    }
+    
+    .carousel-arrow:hover {
+        background: white;
+        transform: translateY(-50%) scale(1.1);
+    }
+    
+    .carousel-arrow.left {
+        left: 15px;
+    }
+    
+    .carousel-arrow.right {
+        right: 15px;
+    }
+
+    /* Invierte el orden en las filas pares (2, 4, 6...) */
+    .jornada-row:nth-child(even) {
+        flex-direction: row-reverse;
+    }
+
+    /* Contenedor del Afiche/Flyer */
+    .jornada-img-container {
+        flex: 1.5;
+        min-width: 550px;
+        max-width: 500px ;
+        height: 600px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .jornada-flyer {
+
+        border-radius: 8px;
+        transition: transform 0.3s ease;
+        /* Evita el recorte/zoom */
+        object-fit: contain; 
+        box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+
+    }
+
+    .jornada-row:hover .jornada-flyer {
+        transform: scale(1.02);
+    }
+
+    /* Contenedor de Texto */
+    .jornada-text-container {
+        flex: 1.2;
+        min-width: 300px;
+    }
+
+    /* Alineación de texto para filas invertidas */
+    .jornada-row:nth-child(even) .jornada-text-container {
+        text-align: right;
+    }
+
+    .jornada-tag {
+        background: #d9534f;
+        color: white;
+        padding: 5px 15px;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        font-weight: bold;
+        border-radius: 4px;
+        margin-bottom: 1.5rem;
+        display: inline-block;
+    }
+
+
+    .jornada-description {
+        font-size: 1rem;
+        color: #555;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+        text-align: justify;
+    }
+
+    /* Botón personalizado */
+    .btn-noticia {
+        display: inline-block;
+        padding: 10px 25px;
+        color: white !important;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: bold;
+        transition: background 0.3s ease;
+    }
+
+    .btn-noticia:hover {
+        background-color: #d9534f;
+    }
+
+    /* Ajustes para móviles */
+    @media (max-width: 992px) {
+        .jornada-row, .jornada-row:nth-child(even) {
+            flex-direction: column;
+            text-align: center !important;
+            gap: 2rem;
+        }
+        .jornada-row:nth-child(even) .jornada-text-container {
+            text-align: center;
+        }
+        .jornada-img-container {
+            max-width: 100%;
+        }
+    }

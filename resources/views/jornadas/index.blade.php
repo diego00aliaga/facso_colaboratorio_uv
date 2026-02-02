@@ -2,191 +2,8 @@
 
 @section('contenido')
 
-<style>
-    .jornadas-container {
-        padding: 2rem 0;
-    }
+    <link rel="stylesheet" href="{{ asset('assets/css/jornadas.css') }}" />
 
-    /* Fila principal de cada jornada */
-    .jornada-row {
-        display: flex;
-        align-items: center;
-        margin-bottom: 5rem;
-        gap: 4rem;
-        flex-wrap: wrap; /* Para móviles */
-    }
-    
-    /* Carrusel de fotos */
-    .jornada-carousel {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        border-radius: 8px;
-    }
-    
-    .jornada-carousel img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        opacity: 0;
-        transition: opacity 0.6s ease-in-out;
-    }
-    
-    .jornada-carousel img.active {
-        opacity: 1;
-    }
-    
-    .carousel-controls {
-        position: absolute;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        display: flex;
-        gap: 10px;
-        z-index: 10;
-    }
-    
-    .carousel-dot {
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        background: rgba(255,255,255,0.5);
-        cursor: pointer;
-        transition: all 0.3s ease;
-        border: 2px solid white;
-    }
-    
-    .carousel-dot.active {
-        background: white;
-        transform: scale(1.2);
-    }
-    
-    .carousel-arrow {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background: rgba(255,255,255,0.8);
-        border: none;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        cursor: pointer;
-        font-size: 1.2rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: all 0.3s ease;
-        z-index: 10;
-    }
-    
-    .carousel-arrow:hover {
-        background: white;
-        transform: translateY(-50%) scale(1.1);
-    }
-    
-    .carousel-arrow.left {
-        left: 15px;
-    }
-    
-    .carousel-arrow.right {
-        right: 15px;
-    }
-
-    /* Invierte el orden en las filas pares (2, 4, 6...) */
-    .jornada-row:nth-child(even) {
-        flex-direction: row-reverse;
-    }
-
-    /* Contenedor del Afiche/Flyer */
-    .jornada-img-container {
-        flex: 1.5;
-        min-width: 550px;
-        max-width: 500px ;
-        height: 600px;
-        display: flex;
-        justify-content: center;
-    }
-
-    .jornada-flyer {
-
-        border-radius: 8px;
-        transition: transform 0.3s ease;
-        /* Evita el recorte/zoom */
-        object-fit: contain; 
-        box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-
-    }
-
-    .jornada-row:hover .jornada-flyer {
-        transform: scale(1.02);
-    }
-
-    /* Contenedor de Texto */
-    .jornada-text-container {
-        flex: 1.2;
-        min-width: 300px;
-    }
-
-    /* Alineación de texto para filas invertidas */
-    .jornada-row:nth-child(even) .jornada-text-container {
-        text-align: right;
-    }
-
-    .jornada-tag {
-        background: #d9534f;
-        color: white;
-        padding: 5px 15px;
-        font-size: 0.8rem;
-        text-transform: uppercase;
-        font-weight: bold;
-        border-radius: 4px;
-        margin-bottom: 1.5rem;
-        display: inline-block;
-    }
-
-
-    .jornada-description {
-        font-size: 1rem;
-        color: #555;
-        line-height: 1.6;
-        margin-bottom: 2rem;
-        text-align: justify;
-    }
-
-    /* Botón personalizado */
-    .btn-noticia {
-        display: inline-block;
-        padding: 10px 25px;
-        color: white !important;
-        text-decoration: none;
-        border-radius: 50px;
-        font-weight: bold;
-        transition: background 0.3s ease;
-    }
-
-    .btn-noticia:hover {
-        background-color: #d9534f;
-    }
-
-    /* Ajustes para móviles */
-    @media (max-width: 992px) {
-        .jornada-row, .jornada-row:nth-child(even) {
-            flex-direction: column;
-            text-align: center !important;
-            gap: 2rem;
-        }
-        .jornada-row:nth-child(even) .jornada-text-container {
-            text-align: center;
-        }
-        .jornada-img-container {
-            max-width: 100%;
-        }
-    }
-</style>
 
 <div class="container pb-5">
     <div class="row justify-content-center">
@@ -256,7 +73,306 @@
 </div>
 
 <script>
-    // Arrays de fotos para cada jornada
+    'use strict';
+
+    // ========================================
+    // CLASE: CarouselStateManager (Single Responsibility)
+    // Gestiona el estado de todos los carruseles
+    // ========================================
+    class CarouselStateManager {
+        constructor(photosData) {
+            this.photosData = photosData;
+            this.currentSlides = {};
+            this.observers = {};
+            this._initializeSlides();
+        }
+
+        _initializeSlides() {
+            Object.keys(this.photosData).forEach(id => {
+                this.currentSlides[id] = 0;
+                this.observers[id] = [];
+            });
+        }
+
+        subscribe(carouselId, callback) {
+            if (!this.observers[carouselId]) {
+                this.observers[carouselId] = [];
+            }
+            this.observers[carouselId].push(callback);
+            return () => {
+                this.observers[carouselId] = this.observers[carouselId].filter(cb => cb !== callback);
+            };
+        }
+
+        notify(carouselId) {
+            const state = this.getState(carouselId);
+            this.observers[carouselId]?.forEach(callback => callback(state));
+        }
+
+        getState(carouselId) {
+            return {
+                currentIndex: this.currentSlides[carouselId],
+                photos: this.photosData[carouselId],
+                totalSlides: this.photosData[carouselId]?.length || 0
+            };
+        }
+
+        goToSlide(carouselId, index) {
+            const photos = this.photosData[carouselId];
+            if (!photos || index < 0 || index >= photos.length) return false;
+            
+            this.currentSlides[carouselId] = index;
+            this.notify(carouselId);
+            return true;
+        }
+
+        nextSlide(carouselId) {
+            const photos = this.photosData[carouselId];
+            if (!photos) return false;
+            
+            this.currentSlides[carouselId] = (this.currentSlides[carouselId] + 1) % photos.length;
+            this.notify(carouselId);
+            return true;
+        }
+
+        previousSlide(carouselId) {
+            const photos = this.photosData[carouselId];
+            if (!photos) return false;
+            
+            this.currentSlides[carouselId] = (this.currentSlides[carouselId] - 1 + photos.length) % photos.length;
+            this.notify(carouselId);
+            return true;
+        }
+
+        changeSlide(carouselId, direction) {
+            return direction > 0 ? this.nextSlide(carouselId) : this.previousSlide(carouselId);
+        }
+
+        getAllCarouselIds() {
+            return Object.keys(this.photosData);
+        }
+    }
+
+    // ========================================
+    // CLASE: CarouselRenderer (Single Responsibility)
+    // Renderiza los elementos del carrusel de forma declarativa
+    // ========================================
+    class CarouselRenderer {
+        constructor() {
+            this.cache = new Map();
+        }
+
+        renderCarousel(carouselId, photos) {
+            const carousel = this._getCarouselElement(carouselId);
+            const dotsContainer = this._getDotsContainer(carouselId);
+            
+            if (!carousel || !dotsContainer) {
+                console.warn(`Carousel ${carouselId} not found`);
+                return false;
+            }
+
+            this._renderImages(carousel, carouselId, photos);
+            this._renderDots(dotsContainer, carouselId, photos.length);
+            
+            return true;
+        }
+
+        updateActiveSlide(carouselId, currentIndex) {
+            const carousel = this._getCarouselElement(carouselId);
+            const dotsContainer = this._getDotsContainer(carouselId);
+            
+            if (!carousel || !dotsContainer) return;
+
+            // Actualizar imágenes
+            const images = carousel.querySelectorAll('img');
+            images.forEach((img, index) => {
+                img.classList.toggle('active', index === currentIndex);
+            });
+
+            // Actualizar dots
+            const dots = dotsContainer.querySelectorAll('.carousel-dot');
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+        }
+
+        _renderImages(carousel, carouselId, photos) {
+            const controls = carousel.querySelector('.carousel-controls');
+            const fragment = document.createDocumentFragment();
+            
+            photos.forEach((photoUrl, index) => {
+                const img = this._createImage(photoUrl, carouselId, index);
+                fragment.appendChild(img);
+            });
+
+            // Insertar antes de los controles si existen
+            if (controls) {
+                carousel.insertBefore(fragment, controls);
+            } else {
+                carousel.appendChild(fragment);
+            }
+        }
+
+        _createImage(url, carouselId, index) {
+            const img = document.createElement('img');
+            img.src = url;
+            img.alt = `Jornada ${carouselId} - Foto ${index + 1}`;
+            img.loading = 'lazy'; // Lazy loading para performance
+            if (index === 0) {
+                img.classList.add('active');
+            }
+            return img;
+        }
+
+        _renderDots(container, carouselId, totalSlides) {
+            const fragment = document.createDocumentFragment();
+            
+            for (let i = 0; i < totalSlides; i++) {
+                const dot = this._createDot(i);
+                fragment.appendChild(dot);
+            }
+            
+            container.appendChild(fragment);
+        }
+
+        _createDot(index) {
+            const dot = document.createElement('span');
+            dot.classList.add('carousel-dot');
+            dot.dataset.index = index;
+            if (index === 0) {
+                dot.classList.add('active');
+            }
+            return dot;
+        }
+
+        _getCarouselElement(carouselId) {
+            if (!this.cache.has(`carousel-${carouselId}`)) {
+                this.cache.set(`carousel-${carouselId}`, document.getElementById(`carousel-${carouselId}`));
+            }
+            return this.cache.get(`carousel-${carouselId}`);
+        }
+
+        _getDotsContainer(carouselId) {
+            if (!this.cache.has(`dots-${carouselId}`)) {
+                this.cache.set(`dots-${carouselId}`, document.getElementById(`dots-${carouselId}`));
+            }
+            return this.cache.get(`dots-${carouselId}`);
+        }
+    }
+
+    // ========================================
+    // CLASE: AutoplayManager (Single Responsibility)
+    // Gestiona la reproducción automática de los carruseles
+    // ========================================
+    class AutoplayManager {
+        constructor(interval = 5000) {
+            this.interval = interval;
+            this.timerId = null;
+            this.isPlaying = false;
+        }
+
+        start(callback) {
+            if (this.isPlaying) return;
+            
+            this.isPlaying = true;
+            this.timerId = setInterval(callback, this.interval);
+        }
+
+        stop() {
+            if (!this.isPlaying) return;
+            
+            clearInterval(this.timerId);
+            this.timerId = null;
+            this.isPlaying = false;
+        }
+
+        restart(callback) {
+            this.stop();
+            this.start(callback);
+        }
+
+        destroy() {
+            this.stop();
+        }
+    }
+
+    // ========================================
+    // CLASE: CarouselController (Dependency Injection)
+    // Coordina las interacciones entre componentes
+    // ========================================
+    class CarouselController {
+        constructor(stateManager, renderer, autoplayManager) {
+            this.stateManager = stateManager;
+            this.renderer = renderer;
+            this.autoplayManager = autoplayManager;
+            this._setupEventDelegation();
+        }
+
+        initialize() {
+            // Renderizar todos los carruseles
+            this.stateManager.getAllCarouselIds().forEach(carouselId => {
+                const state = this.stateManager.getState(carouselId);
+                this.renderer.renderCarousel(carouselId, state.photos);
+                
+                // Suscribirse a cambios de estado
+                this.stateManager.subscribe(carouselId, (state) => {
+                    this.renderer.updateActiveSlide(carouselId, state.currentIndex);
+                });
+            });
+
+            // Iniciar autoplay
+            this._startAutoplay();
+        }
+
+        goToSlide(carouselId, index) {
+            this.stateManager.goToSlide(carouselId, index);
+            this._resetAutoplay();
+        }
+
+        changeSlide(carouselId, direction) {
+            this.stateManager.changeSlide(carouselId, direction);
+        }
+
+        _setupEventDelegation() {
+            // Event delegation para los dots
+            document.addEventListener('click', (e) => {
+                const dot = e.target.closest('.carousel-dot');
+                if (dot) {
+                    const container = dot.parentElement;
+                    const carouselId = container.id.replace('dots-', '');
+                    const index = parseInt(dot.dataset.index);
+                    
+                    if (carouselId && !isNaN(index)) {
+                        this.goToSlide(carouselId, index);
+                    }
+                }
+            });
+        }
+
+        _startAutoplay() {
+            this.autoplayManager.start(() => {
+                this.stateManager.getAllCarouselIds().forEach(carouselId => {
+                    this.stateManager.nextSlide(carouselId);
+                });
+            });
+        }
+
+        _resetAutoplay() {
+            this.autoplayManager.restart(() => {
+                this.stateManager.getAllCarouselIds().forEach(carouselId => {
+                    this.stateManager.nextSlide(carouselId);
+                });
+            });
+        }
+
+        destroy() {
+            this.autoplayManager.destroy();
+        }
+    }
+
+    // ========================================
+    // CONFIGURACIÓN Y DATOS
+    // ========================================
     const jornadasPhotos = {
         1: [
             "{{ asset('assets/images/jornadas/flyer_jornada1.png') }}",
@@ -270,96 +386,41 @@
         2: [
             "{{ asset('assets/images/jornadas/flyer_1.jpg') }}",
             "{{ asset('assets/images/jornadas/flyer_2.jpg') }}",
-
         ],
         3: [
             "{{ asset('assets/images/jornadas/flyer_3.jpg') }}",
             "{{ asset('assets/images/jornadas/flyer_jornada3_2.png') }}",
-
         ]
     };
-    
-    let currentSlides = {
-        1: 0,
-        2: 0,
-        3: 0
-    };
-    
-    // Inicializar carruseles
-    function initCarousels() {
-        Object.keys(jornadasPhotos).forEach(jornadaId => {
-            const carousel = document.getElementById(`carousel-${jornadaId}`);
-            const dotsContainer = document.getElementById(`dots-${jornadaId}`);
-            const photos = jornadasPhotos[jornadaId];
-            
-            // Obtener referencia a los botones antes de agregar imágenes
-            const leftArrow = carousel.querySelector('.carousel-arrow.left');
-            const rightArrow = carousel.querySelector('.carousel-arrow.right');
-            const controls = carousel.querySelector('.carousel-controls');
-            
-            // Crear imágenes (agregándolas en orden correcto al final)
-            photos.forEach((photo, index) => {
-                const img = document.createElement('img');
-                img.src = photo;
-                img.alt = `Jornada ${jornadaId} - Foto ${index + 1}`;
-                if (index === 0) img.classList.add('active');
-                // Insertar antes de los controles
-                carousel.insertBefore(img, leftArrow);
-                
-                // Crear dots
-                const dot = document.createElement('span');
-                dot.classList.add('carousel-dot');
-                if (index === 0) dot.classList.add('active');
-                dot.onclick = () => goToSlide(jornadaId, index);
-                dotsContainer.appendChild(dot);
-            });
-        });
+
+    // ========================================
+    // INICIALIZACIÓN DE LA APLICACIÓN
+    // ========================================
+    let carouselApp = null;
+
+    // Instanciar componentes cuando el DOM esté listo
+    window.addEventListener('DOMContentLoaded', () => {
+        const stateManager = new CarouselStateManager(jornadasPhotos);
+        const renderer = new CarouselRenderer();
+        const autoplayManager = new AutoplayManager(5000);
         
-        // Auto-avanzar cada 5 segundos
-        setInterval(() => {
-            Object.keys(jornadasPhotos).forEach(jornadaId => {
-                changeSlide(jornadaId, 1);
-            });
-        }, 5000);
+        carouselApp = new CarouselController(stateManager, renderer, autoplayManager);
+        carouselApp.initialize();
+    });
+
+    // Funciones globales para mantener compatibilidad (si es necesario)
+    function changeSlide(carouselId, direction) {
+        carouselApp?.changeSlide(carouselId, direction);
     }
-    
-    function changeSlide(jornadaId, direction) {
-        const photos = jornadasPhotos[jornadaId];
-        const carousel = document.getElementById(`carousel-${jornadaId}`);
-        const images = carousel.querySelectorAll('img');
-        const dots = document.getElementById(`dots-${jornadaId}`).querySelectorAll('.carousel-dot');
-        
-        // Quitar active de la imagen actual
-        images[currentSlides[jornadaId]].classList.remove('active');
-        dots[currentSlides[jornadaId]].classList.remove('active');
-        
-        // Calcular nuevo índice
-        currentSlides[jornadaId] = (currentSlides[jornadaId] + direction + photos.length) % photos.length;
-        
-        // Agregar active a la nueva imagen
-        images[currentSlides[jornadaId]].classList.add('active');
-        dots[currentSlides[jornadaId]].classList.add('active');
+
+    function goToSlide(carouselId, index) {
+        carouselApp?.goToSlide(carouselId, index);
     }
-    
-    function goToSlide(jornadaId, index) {
-        const carousel = document.getElementById(`carousel-${jornadaId}`);
-        const images = carousel.querySelectorAll('img');
-        const dots = document.getElementById(`dots-${jornadaId}`).querySelectorAll('.carousel-dot');
-        
-        // Quitar active de la imagen actual
-        images[currentSlides[jornadaId]].classList.remove('active');
-        dots[currentSlides[jornadaId]].classList.remove('active');
-        
-        // Establecer nuevo índice
-        currentSlides[jornadaId] = index;
-        
-        // Agregar active a la nueva imagen
-        images[currentSlides[jornadaId]].classList.add('active');
-        dots[currentSlides[jornadaId]].classList.add('active');
-    }
-    
-    // Inicializar cuando cargue la página
-    window.addEventListener('load', initCarousels);
+
+    // Limpiar recursos al salir de la página
+    window.addEventListener('beforeunload', () => {
+        carouselApp?.destroy();
+    });
 </script>
 
 @endsection

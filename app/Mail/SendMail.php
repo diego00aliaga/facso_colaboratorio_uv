@@ -30,9 +30,17 @@ class SendMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-			from: new Address('investigacion.facso@uv.cl','Web Colaboratorio'),
-            subject: 'Contacto web desde Colaboratorio',
-        );
+                // El 'from' debe seguir siendo el oficial para que Gmail no lo bloquee
+                from: new Address('investigacion.facso@uv.cl', 'Web Colaboratorio'),
+                
+                // 1. AGREGA ESTO: Permite responder directamente al usuario
+                replyTo: [
+                    new Address($this->data['email'], $this->data['name']),
+                ],
+                
+                // 2. MODIFICA ESTO: El asunto ahora te dice quién es sin abrir el mail
+                subject: 'Contacto Web Colaboratorio: ' . $this->data['name'] . ' - ' . ($this->data['subject'] ?? 'Consulta Web'),
+            );
     }
 
     /**

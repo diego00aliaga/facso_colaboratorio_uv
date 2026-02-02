@@ -1,0 +1,371 @@
+/* ========================================
+   NAVEGACIÓN POR BURBUJAS (AÑOS)
+   ======================================== */
+.year-nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.year-bubble {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #f8f9fa;
+    color: #9e9e9e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.0rem;
+    transition: all 0.3s ease;
+    border: 2px solid #bdbdbd;
+    user-select: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.year-bubble:hover {
+    transform: translateY(-5px);
+    background-color: #e9ecef;
+}
+
+.year-bubble.active {
+    background-color: #f25e63;
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(0,51,102,0.3);
+}
+
+/* ========================================
+   CONTENEDOR PRINCIPAL
+   ======================================== */
+.content-box-custom {
+    min-height: 600px;
+    padding: 4rem !important;
+    border-top: 6px solid #000000 !important;
+    transition: opacity 0.4s ease;
+}
+
+/* ========================================
+   GRILLA DE INVESTIGADORES
+   ======================================== */
+.researcher-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+.researcher-card {
+    flex: 0 1 21%;
+    min-width: 220px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 1.5rem;
+    border-radius: 12px;
+    background-color: #fff;
+    height: 100%;
+}
+
+.researcher-card:hover {
+    transform: translateY(-8px);
+}
+
+.researcher-card:hover .researcher-photo {
+    border-color: #f25e63;
+    box-shadow: 0 5px 15px rgba(242, 94, 99, 0.3);
+}
+
+.researcher-card:hover .click-indicator {
+    opacity: 1;
+}
+
+.researcher-card:first-child:nth-last-child(5),
+.researcher-card:first-child:nth-last-child(5) ~ .researcher-card {
+    flex: 0 1 28%;
+}
+
+.researcher-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+    border: 3px solid #eee;
+    background-color: #f8f9fa;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.click-indicator {
+    position: absolute;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f25e63;
+    color: white;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    opacity: 0;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    padding: 5px 10px;
+}
+
+.click-indicator i {
+    margin-right: 5px;
+    margin-top: 2px;
+}
+
+.researcher-name {
+    font-family: 'Bebas', sans-serif;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.project-short-title {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: #666;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-height: 3.6em;
+}
+
+/* ========================================
+   LISTA DINÁMICA
+   ======================================== */
+.dynamic-list {
+    text-align: left;
+    margin-top: 1.5rem;
+    list-style-type: disc !important;
+    padding-left: 2rem;
+    columns: 1;
+}
+
+.dynamic-list li {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: #444;
+    display: list-item !important;
+}
+
+/* ========================================
+   SECCIÓN DE DETALLES DEL PROYECTO
+   ======================================== */
+.project-details-section {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    margin: 3rem 0;
+}
+
+.project-details-section.active {
+    display: block;
+    opacity: 1;
+}
+
+.project-details-container {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    padding: 3rem;
+    border-top: 6px solid #f25e63;
+    position: relative;
+}
+
+.project-header {
+    background: #fafafa;
+    border-left: 4px solid #f25e63;
+    padding: 1.5rem 2rem;
+    border-radius: 4px;
+    margin-bottom: 2rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.project-header-content {
+    flex: 1;
+}
+
+.project-header h3 {
+    font-family: 'Bebas', sans-serif;
+    font-size: 1.6rem;
+    margin: 0;
+    letter-spacing: 0.5px;
+    color: #333;
+}
+
+.project-year-badge {
+    display: inline-block;
+    background: #f25e63;
+    color: white;
+    padding: 0.25rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+}
+
+.close-project-btn {
+    background: transparent;
+    border: 2px solid #ddd;
+    color: #666;
+    width: 36px;
+    height: 36px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.close-project-btn:hover {
+    background: #f5f5f5;
+    border-color: #999;
+    color: #333;
+    transform: scale(1.05);
+}
+
+.project-researcher-info {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.project-researcher-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid #f25e63;
+    box-shadow: 0 5px 15px rgba(242, 94, 99, 0.3);
+}
+
+.project-researcher-name {
+    font-family: 'Bebas', sans-serif;
+    font-size: 1.8rem;
+    color: #333;
+    margin: 0;
+}
+
+.project-section-title {
+    font-weight: 700;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-size: 1.15rem;
+    font-family: 'Bebas', sans-serif;
+    letter-spacing: 1px;
+    color: #333;
+    text-transform: uppercase;
+    border-left: 4px solid #f25e63;
+    padding-left: 1rem;
+}
+
+.project-section-title:first-of-type {
+    margin-top: 0;
+}
+
+.project-text {
+    color: #444;
+    line-height: 1.8;
+    font-size: 0.95rem;
+    font-weight: 400;
+    text-align: justify;
+}
+
+.project-title-text {
+    font-weight: 500;
+    font-size: 1.05rem;
+    color: #2c3e50;
+    line-height: 1.7;
+}
+
+.project-publications-list {
+    font-size: 0.92rem;
+    line-height: 1.7;
+    list-style-type: disc;
+    padding-left: 2rem;
+}
+
+.project-publications-list li {
+    margin-bottom: 0.8rem;
+    color: #555;
+    font-weight: 400;
+}
+
+.project-footer {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 2px solid #f0f0f0;
+    text-align: center;
+}
+
+.project-footer .btn {
+    font-size: 1rem;
+    padding: 0.7rem 2rem;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.project-footer .btn-primary {
+    background-color: #f25e63;
+    border-color: #f25e63;
+    color: white;
+}
+
+.project-footer .btn-primary:hover {
+    background-color: #d94a4f;
+    border-color: #d94a4f;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(242, 94, 99, 0.4);
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 768px) {
+    .year-bubble {
+        width: 60px;
+        height: 60px;
+        font-size: 1.2rem;
+    }
+    
+    .content-box-custom {
+        padding: 2rem !important;
+    }
+    
+    .dynamic-list {
+        columns: 1;
+    }
+
+    .modal-body {
+        padding: 1.5rem;
+    }
+
+    .modal-footer {
+        padding: 1rem;
+    }
+}
