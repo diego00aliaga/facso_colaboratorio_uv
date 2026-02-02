@@ -173,7 +173,7 @@
 					</div>
 				</div> -->
 				<div class="col-lg-6 col-xl-4 pb-4">
-					<p class="b800 text-uppercase">Fotografías</p>
+					<p class="b800 text-uppercase">Noticias</p>
 						<div class="d-grid gap-2">
 						<a class="btn btn-outline-dark" role="button" data-bs-toggle="collapse" data-bs-target="#gal-biblio2" aria-expanded="false" aria-controls="gal-biblio2" data-scroll-target="#gal-biblio2">
 							<span class="d-block" data-bs-toggle="tooltip" data-bs-placement="top" title="14 abril 2025, 12:00 hs	">Facso inaugura año académico 2025 con conferencia sobre colaboración en Ciencias Sociales en Chile<i class="far fa-images fa-lg ms-2"></i></span>
@@ -192,6 +192,11 @@
 					<div class="d-grid gap-2 mt-2">
 						<a class="btn btn-outline-dark" role="button" data-bs-toggle="collapse" data-bs-target="#gal-danielaJara" aria-expanded="false" aria-controls="gal-danielaJara" data-scroll-target="#gal-danielaJara">
 							<span class="d-block" data-bs-toggle="tooltip" data-bs-placement="top" title="13 enero 2026">Daniela Jara obtiene premio a mejor artículo.<i class="far fa-images fa-lg ms-2"></i></span>
+						</a>
+					</div>
+					<div class="d-grid gap-2 mt-2">
+						<a class="btn btn-outline-dark" role="button" data-bs-toggle="collapse" data-bs-target="#gal-felixA" aria-expanded="false" aria-controls="gal-felixA" data-scroll-target="#gal-felixA">
+							<span class="d-block" data-bs-toggle="tooltip" data-bs-placement="top" title="13 enero 2026">Académico Felix Aguirre presenta su nuevo libro en la renovada editorial EDEVAL.<i class="far fa-images fa-lg ms-2"></i></span>
 						</a>
 					</div>
 				</div>
@@ -243,7 +248,7 @@
 				<div class="row pt-4 justify-content-center collapse" id="gal-biblio2" data-bs-parent="#accordion-registros">
 				<div class="col-lg-4 pb-4">
 					<p class="b800 text-uppercase">Facso inaugura año académico 2025 con conferencia sobre colaboración en Ciencias Sociales en Chile</p>
-					<p>Ciencias Sociales para Chile, una red de colaboración en ciencia abierta” es la conferencia con que la Facultad de Ciencias Sociales (Facso) de la Universidad de Valparaíso inaugura su año académico 2025.</p>
+					<p style="text-align: justify;">Ciencias Sociales para Chile, una red de colaboración en ciencia abierta” es la conferencia con que la Facultad de Ciencias Sociales (Facso) de la Universidad de Valparaíso inaugura su año académico 2025.</p>
 				</div>
 				<div class="col-lg-8">
 					<div id="carouselBliblio0" class="carousel slide" data-mdb-ride="carousel" data-mdb-carousel-init>
@@ -280,7 +285,7 @@
 			<div class="row pt-4 justify-content-center collapse" id="gal-biblio" data-bs-parent="#accordion-registros">
 				<div class="col-lg-4 pb-4">
 					<p class="b800 text-uppercase">El Dr. Pablo López Silva participó del Congreso Futuro 2026</p>
-					<p>En el marco del Congreso Futuro 2026, el Dr. Pablo López Silva participó del "Panel Año del Cerebro Chile 2026", que se consagra como un espacio interdisciplinar que conecta la neurociencia desarrollada en Chile, para discutir sobre los grandes desafíos contemporáneos, como los cambios sociales, culturales y tecnológicos que impactan en la salud mental, el aprendizaje, la creatividad y la convivencia, invitándonos a reflexionar sobre el cerebro, el bienestar individual y colectivo.</p>
+					<p style="text-align: justify;">En el marco del Congreso Futuro 2026, el Dr. Pablo López Silva participó del "Panel Año del Cerebro Chile 2026", que se consagra como un espacio interdisciplinar que conecta la neurociencia desarrollada en Chile, para discutir sobre los grandes desafíos contemporáneos, como los cambios sociales, culturales y tecnológicos que impactan en la salud mental, el aprendizaje, la creatividad y la convivencia, invitándonos a reflexionar sobre el cerebro, el bienestar individual y colectivo.</p>
 				</div>
 				<div class="col-lg-8">
 					<div id="carouselBliblio" class="carousel slide" data-mdb-ride="carousel" data-mdb-carousel-init>
@@ -320,7 +325,7 @@
 			<div class="row pt-4 justify-content-center collapse" id="gal-congfutro2" data-bs-parent="#accordion-registros">
 				<div class="col-lg-4 pb-4">
 					<p class="b800 text-uppercase">Psicóloga Ximena Faúndez en Congreso Futuro: «El futuro de las niñeces trans es un test de la calidad democrática del país»</p>
-					<p>La académica de la Universidad de Valparaíso, Ximena Faúndez, abordó la urgencia de transitar desde la normativa legal hacia una práctica cotidiana que garantice los derechos fundamentales de niños, niñas y adolescentes trans.</p>
+					<p style="text-align: justify;">La académica de la Universidad de Valparaíso, Ximena Faúndez, abordó la urgencia de transitar desde la normativa legal hacia una práctica cotidiana que garantice los derechos fundamentales de niños, niñas y adolescentes trans.</p>
 				</div>
 				<div class="col-lg-8">
 					<div id="carouselBliblio1" class="carousel slide" data-mdb-ride="carousel" data-mdb-carousel-init>
@@ -355,7 +360,7 @@
 			<div class="row pt-4 justify-content-center collapse" id="gal-danielaJara" data-bs-parent="#accordion-registros">
 				<div class="col-lg-4 pb-4">
 					<p class="b800 text-uppercase">Daniela Jara obtiene premio a "mejor artículo" en el Congreso LASA por investigación financiada con proyecto miniCOES (2019).</p>
-					<p>La académica de la Universidad de Valparaíso, Daniela Jara (Universidad de Valparaíso - Chile), junto a Ana Figueiredo (U.Mayor) y Marcela Cornejo (Pontificia Universidad Católica de Chile) obtienen premio a "mejor artículo" en el Congreso LASA por investigación financiada con proyecto miniCOES.</p>
+					<p style="text-align: justify;">La académica de la Universidad de Valparaíso, Daniela Jara (Universidad de Valparaíso - Chile), junto a Ana Figueiredo (U.Mayor) y Marcela Cornejo (Pontificia Universidad Católica de Chile) obtienen premio a "mejor artículo" en el Congreso LASA por investigación financiada con proyecto miniCOES.</p>
 				</div>
 				<div class="col-lg-8">
 					<div id="carouselBliblio2" class="carousel slide" data-mdb-ride="carousel" data-mdb-carousel-init>
@@ -388,6 +393,47 @@
 				</div>
 				<div class="col-12 pt-4 text-center">
 					<button type="button" class="btn btn-outline-dark btn-floating" data-mdb-ripple-init data-mdb-ripple-color="dark" data-bs-toggle="collapse" data-bs-target="#gal-danielaJara">
+						<i class="far fa-times"></i>
+					</button>
+				</div>
+			</div>
+
+			<div class="row pt-4 justify-content-center collapse" id="gal-felixA" data-bs-parent="#accordion-registros">
+				<div class="col-lg-4 pb-4">
+					<p class="b800 text-uppercase">Académico Felix Aguirre presenta su nuevo libro en la renovada editorial EDEVAL</p>
+					<p style="text-align: justify;">Nuestro académico, Félix Aguirre, presentó oficialmente su nuevo libro “Reformistas antes que socialistas. La cultura política y los orígenes del discurso sociológico en la formación intelectual del socialismo fabiano (1884-1889)”, en el marco del relanzamiento del sello editorial EDEVAL de la Facultad de Derecho de la Universidad de Valparaíso.</p>
+				</div>
+				<div class="col-lg-8">
+					<div id="carouselBliblio3" class="carousel slide" data-mdb-ride="carousel" data-mdb-carousel-init>
+						<div class="carousel-inner">
+							<div class="carousel-item active">
+								<img src="{{ asset('assets/images/uv/noticias/felixAguirre.jpg') }}" class="d-block w-100" alt="10° Congreso de Bibliotecas Universitarias y Especializadas de la Universidad de Chile"/>
+							</div>
+							<!-- <div class="carousel-item">
+								<img src="{{ asset('assets/images/uv/noticias/pablo_lopez_01.jpg') }}" class="d-block w-100" alt="10° Congreso de Bibliotecas Universitarias y Especializadas de la Universidad de Chile"/>
+							</div> -->
+								<!-- <div class="carousel-item">
+									<img src="{{ asset('assets/images/bibliotecas090424/DSC03121.jpg') }}" class="d-block w-100" alt="10° Congreso de Bibliotecas Universitarias y Especializadas de la Universidad de Chile"/>
+								</div>
+								<div class="carousel-item">
+									<img src="{{ asset('assets/images/bibliotecas090424/DSC03131.jpg') }}" class="d-block w-100" alt="10° Congreso de Bibliotecas Universitarias y Especializadas de la Universidad de Chile"/>
+								</div>
+								<div class="carousel-item">
+									<img src="{{ asset('assets/images/bibliotecas090424/DSC03132.jpg') }}" class="d-block w-100" alt="10° Congreso de Bibliotecas Universitarias y Especializadas de la Universidad de Chile"/>
+								</div> -->
+						</div>
+						<!-- <button class="carousel-control-prev" type="button" data-mdb-target="#carouselBliblio" data-mdb-slide="prev">
+							<span aria-hidden="true"><i class="fas fa-arrow-left"></i></span>
+							<span class="visually-hidden">Anterior</span>
+						</button>
+						<button class="carousel-control-next" type="button" data-mdb-target="#carouselBliblio" data-mdb-slide="next">
+							<span aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+							<span class="visually-hidden">Siguiente</span>
+						</button> -->
+					</div>
+				</div>
+				<div class="col-12 pt-4 text-center">
+					<button type="button" class="btn btn-outline-dark btn-floating" data-mdb-ripple-init data-mdb-ripple-color="dark" data-bs-toggle="collapse" data-bs-target="#gal-felixA">
 						<i class="far fa-times"></i>
 					</button>
 				</div>
