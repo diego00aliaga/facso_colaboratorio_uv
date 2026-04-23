@@ -199,6 +199,11 @@
 							<span class="d-block" data-bs-toggle="tooltip" data-bs-placement="top" title="13 enero 2026">Académico Felix Aguirre presenta su nuevo libro en la renovada editorial EDEVAL.<i class="far fa-images fa-lg ms-2"></i></span>
 						</a>
 					</div>
+					<div class="d-grid gap-2 mt-2">
+						<a class="btn btn-outline-dark" role="button" data-bs-toggle="collapse" data-bs-target="#gal-hatibovicSagredo" aria-expanded="false" aria-controls="gal-hatibovicSagredo" data-scroll-target="#gal-hatibovicSagredo">
+							<span class="d-block" data-bs-toggle="tooltip" data-bs-placement="top" title="Abril 2026">Fuad Hatibovic y Omar Sagredo: Percepciones ciudadanas del estallido social chileno.<i class="far fa-images fa-lg ms-2"></i></span>
+						</a>
+					</div>
 				</div>
 				<div class="col-lg-6 col-xl-4 pb-4">
 					<p class="b800 text-uppercase">Sitios Web</p>
@@ -409,35 +414,38 @@
 							<div class="carousel-item active">
 								<img src="{{ asset('assets/images/uv/noticias/felixAguirre.jpg') }}" class="d-block w-100" alt="10° Congreso de Bibliotecas Universitarias y Especializadas de la Universidad de Chile"/>
 							</div>
-							<!-- <div class="carousel-item">
-								<img src="{{ asset('assets/images/uv/noticias/pablo_lopez_01.jpg') }}" class="d-block w-100" alt="10° Congreso de Bibliotecas Universitarias y Especializadas de la Universidad de Chile"/>
-							</div> -->
-								<!-- <div class="carousel-item">
-									<img src="{{ asset('assets/images/bibliotecas090424/DSC03121.jpg') }}" class="d-block w-100" alt="10° Congreso de Bibliotecas Universitarias y Especializadas de la Universidad de Chile"/>
-								</div>
-								<div class="carousel-item">
-									<img src="{{ asset('assets/images/bibliotecas090424/DSC03131.jpg') }}" class="d-block w-100" alt="10° Congreso de Bibliotecas Universitarias y Especializadas de la Universidad de Chile"/>
-								</div>
-								<div class="carousel-item">
-									<img src="{{ asset('assets/images/bibliotecas090424/DSC03132.jpg') }}" class="d-block w-100" alt="10° Congreso de Bibliotecas Universitarias y Especializadas de la Universidad de Chile"/>
-								</div> -->
 						</div>
-						<!-- <button class="carousel-control-prev" type="button" data-mdb-target="#carouselBliblio" data-mdb-slide="prev">
-							<span aria-hidden="true"><i class="fas fa-arrow-left"></i></span>
-							<span class="visually-hidden">Anterior</span>
-						</button>
-						<button class="carousel-control-next" type="button" data-mdb-target="#carouselBliblio" data-mdb-slide="next">
-							<span aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
-							<span class="visually-hidden">Siguiente</span>
-						</button> -->
+			
 					</div>
 				</div>
+				
 				<div class="col-12 pt-4 text-center">
 					<button type="button" class="btn btn-outline-dark btn-floating" data-mdb-ripple-init data-mdb-ripple-color="dark" data-bs-toggle="collapse" data-bs-target="#gal-felixA">
 						<i class="far fa-times"></i>
 					</button>
 				</div>
 			</div>
+
+			<div class="row pt-4 justify-content-center collapse" id="gal-hatibovicSagredo" data-bs-parent="#accordion-registros">
+    <div class="col-lg-4 pb-4">
+        <p class="b800 text-uppercase">Fuad Hatibovic y Omar Sagredo: Percepciones ciudadanas del estallido social chileno.</p>
+        <p style="text-align: justify;">En Panorámica conversamos con Fuad Hatibovic y Omar Sagredo sobre el estudio “Percepciones ciudadanas sobre el estallido social chileno: disposición hacia la acción colectiva ambiental y el papel de la identificación política, la democracia y el género” publicado en Frontiers in Psychology, una de las revistas de acceso abierto más grandes en ese campo a nivel global.</p>
+    </div>
+    <div class="col-lg-8">
+        <div id="carouselHatibovic" class="carousel slide" data-mdb-ride="carousel" data-mdb-carousel-init>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{{ asset('assets/images/uv/noticias/hatibovic_sagredo.png') }}" class="d-block w-100" alt="Fuad Hatibovic y Omar Sagredo"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 pt-4 text-center">
+        <button type="button" class="btn btn-outline-dark btn-floating" data-mdb-ripple-init data-mdb-ripple-color="dark" data-bs-toggle="collapse" data-bs-target="#gal-hatibovicSagredo">
+            <i class="far fa-times"></i>
+        </button>
+    </div>
+</div>
 		</div>
 	</section>
 			</div>

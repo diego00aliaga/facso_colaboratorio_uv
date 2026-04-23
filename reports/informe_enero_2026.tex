@@ -1,0 +1,117 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{float} % Necesario para el control de flotantes [H]
+\usepackage{placeins} % Necesario para \FloatBarrier
+\usepackage{hyperref} % Añadido para los hipervínculos
+\usepackage{cleveref} % Necesario para referenciar con el nombre
+
+\geometry{
+a4paper,
+margin=1in,
+}
+
+
+\begin{document}
+% ----------------------------------------------------------------
+% INICIO DE LA PORTADA MANUAL (Actualizado a Septiembre)
+% ----------------------------------------------------------------
+\begin{center}
+% 1. Logo (sin entorno 'figure' para evitar que flote)
+\includegraphics[width=4cm]{imagenes/logoUV.png} 
+\end{center}
+
+% 2. Espacio vertical para empujar el título hacia abajo (opcional)
+\vspace*{0.5cm} 
+
+\begin{center}
+% 3. Título del Informe
+{\Large\bfseries INFORME MENSUAL DE COLABORACIÓN\par} 
+\vspace{0.5cm}
+{\Large Plataforma Colaboratorio - Universidad de Valparaíso\par}
+
+\vspace{0.5cm}
+% 4. Detalles del mes (ACTUALIZADO)
+{\large \textbf{Mes:} Enero 2026\par}
+\vspace{0.5cm}
+
+% 5. Autor
+{\large \textbf{Colaborador:} Diego Aliaga\par}
+\end{center}
+
+
+% ----------------------------------------------------------------
+% INICIO DEL CONTENIDO (Actualizado a Septiembre)
+% ----------------------------------------------------------------
+
+\section*{Resumen ejecutivo}
+Durante enero se consolidó la sección de proyectos FACSO y se ampliaron los contenidos públicos de la plataforma. Se incorporaron nuevas vistas y materiales gráficos para jornadas, investigadores y redes, junto con ajustes en navegación y rutas. El resultado fue una actualización visual y estructural de las páginas informativas, con mayor cobertura de contenidos y mejor organización del material institucional (ver \Cref{fig:proyectos_facso,fig:jornadas,fig:nucleos,fig:redes_sobre}).
+
+\section*{Descripción de cambios}
+\begin{itemize}
+    \item \textbf{Sección Proyectos FACSO:} Se incorporó una introducción institucional del Fondo Concursable, un timeline interactivo por años (2021--2025) con navegación por burbujas, y contenido dinámico que muestra descripción anual, puntos clave y grilla de investigadores. Además, se añadió un panel de detalle con foto, perfil externo, objetivo y productos (publicaciones, congresos, presentaciones, formación, difusión, docencia, libros, capítulos, artículos y tesis), junto con una sección de resultados institucionales (ver \Cref{fig:proyectos_facso}).
+    \item \textbf{Sección Jornadas:} Se habilitó una página con tres jornadas (I, II y III), cada una con título, descripción y enlace a noticia externa. Además, se implementó un carrusel por jornada para mostrar afiches y material visual (ver \Cref{fig:jornadas}).
+    \item \textbf{Sección Núcleos:} Se organizó un listado de Centros UV con tarjetas visuales, imagen destacada y enlace directo a cada sitio institucional (CEI-CPMDH, CIDCL, CINVIT, CIA-UV, CEI-TESyS, CIESAL, C-ESTRES), unificando la presentación en una grilla consistente (ver \Cref{fig:nucleos}).
+    \item \textbf{Sección Redes y Sobre:} En redes se actualizó la sección con el texto institucional y tarjetas de colaboración con logos y enlaces externos. En sobre se consolidó el texto institucional, el acceso al PDF de premisas del modelo, la cita formal, el bloque de equipo académico con su galería y la sección de registros con contenido desplegable (videos, galerías fotográficas con carruseles de eventos institucionales y activación mediante accordion) (ver \Cref{fig:redes_sobre}).
+    \item \textbf{Nuevos recursos gráficos:} Se incorporaron nuevos flyers de jornadas, fotografías de investigadores y material gráfico institucional para cards y secciones informativas, reforzando la identidad visual del sitio (ver \Cref{fig:recursos_graficos}).
+    \item \textbf{Rutas y estructura de acceso:} Se integraron rutas para nuevas páginas y se ajustó la navegación para facilitar el acceso a las secciones actualizadas (ver \Cref{fig:rutas}).
+    \item \textbf{Back-end asociado:} Se añadieron componentes básicos para la gestión de proyectos FACSO (controlador y modelo). Además, se configuró el sistema de correos institucionales mediante SendMail con reply-to personalizado, asunto dinámico con nombre del remitente y configuración SMTP con el dominio institucional \texttt{investigacion.facso@uv.cl}, permitiendo respuestas directas desde el formulario de contacto (ver \Cref{fig:backend}).
+\end{itemize}
+
+\FloatBarrier 
+\newpage
+\section*{Figuras}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\linewidth]{imagenes/proyectos_facso.png}
+\caption{Vista actualizada de la sección Proyectos FACSO con nuevos bloques informativos y organización visual.}
+\label{fig:proyectos_facso}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\linewidth]{imagenes/jornadas.png}
+\caption{Página de jornadas con listado de actividades y material gráfico asociado.}
+\label{fig:jornadas}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\linewidth]{imagenes/nucleos.png}
+\caption{Sección de núcleos con contenido reorganizado y presentación más clara.}
+\label{fig:nucleos}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\linewidth]{imagenes/redes_sobre.png}
+\caption{Ajustes de contenido y estilo en las secciones de redes y sobre.}
+\label{fig:redes_sobre}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\linewidth]{imagenes/recursos_graficos.png}
+\caption{Nuevos recursos gráficos incorporados (imágenes de investigadores y material de jornadas).}
+\label{fig:recursos_graficos}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\linewidth]{imagenes/rutas.png}
+\caption{Actualización de rutas y navegación para acceder a las nuevas secciones.}
+\label{fig:rutas}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\linewidth]{imagenes/backend.png}
+\caption{Base de soporte en back-end para proyectos FACSO (controlador y modelo).}
+\label{fig:backend}
+\end{figure}
+
+\end{document}
